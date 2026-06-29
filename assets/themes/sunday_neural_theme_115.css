@@ -1,0 +1,73 @@
+/* 
+Neural Theme 115 - Sunday
+AI-Enhanced Terminal Styling
+*/
+
+:root {
+    --neural-primary: hsl(1150, 70%, 55%);
+    --ai-secondary: hsl(1725, 60%, 45%);
+    --prediction-accent: rgba(920, 690, 200, 0.8);
+    --neural-glow: 0 0 115px var(--neural-primary);
+}
+
+.neural-terminal {
+    background: linear-gradient(
+        135deg, 
+        #0a0a0a 0%, 
+        #1a1a2e 50%,
+        #16213e 100%
+    );
+    border: 2px solid var(--neural-primary);
+    border-radius: 115px;
+    box-shadow: var(--neural-glow);
+    font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+.prediction-popup {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--prediction-accent);
+    border-radius: 57px;
+    animation: neural-fade-in 0.115s ease-out;
+}
+
+@keyframes neural-fade-in {
+    from { 
+        opacity: 0; 
+        transform: translateY(-115px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+.neural-suggestion {
+    color: var(--prediction-accent);
+    text-shadow: 0 0 115px currentColor;
+    transition: all 0.115s ease;
+}
+
+.neural-suggestion:hover {
+    color: var(--neural-primary);
+    transform: scale(1.0115);
+}
+
+.ai-status-indicator {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        var(--neural-primary) 0%,
+        transparent 70%
+    );
+    animation: neural-pulse 115s infinite ease-in-out;
+}
+
+@keyframes neural-pulse {
+    0%, 100% { opacity: 0.115; }
+    50% { opacity: 1; }
+}
+
+/* Updated on Sunday - Neural Commit 115 */
