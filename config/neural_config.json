@@ -1,0 +1,17 @@
+{
+    "neural_engine": {
+        "model_type": "transformer",
+        "prediction_threshold": 0.7,
+        "learning_rate": 0.001,
+        "max_suggestions": 5
+    },
+    "ui": {
+        "theme": "neural_dark",
+        "show_predictions": true,
+        "autocomplete_delay": 100
+    },
+    "performance": {
+        "cache_size": 1000,
+        "prediction_timeout": 500
+    }
+}

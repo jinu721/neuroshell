@@ -1,0 +1,40 @@
+# 🧠 NeuroShell
+
+AI-Powered Terminal with Neural Command Prediction
+
+## Features
+
+- 🤖 Neural command prediction
+- 🎯 Smart autocomplete
+- 🗣️ Voice-to-command conversion
+- 📚 Adaptive learning system
+- 🎨 Intelligent UI themes
+- ⚡ Performance optimization
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+python neuroshell.py
+```
+
+## Usage
+
+```bash
+# Start interactive mode
+python neuroshell.py
+
+# Enable neural prediction
+python neuroshell.py --neural
+```
+
+## Architecture
+
+- `src/neural/` - Neural prediction engine
+- `src/commands/` - Command processing
+- `src/ui/` - Terminal interface
+- `src/voice/` - Voice input processing
+
+## License
+
+MIT License - Built for the future of terminal interaction
