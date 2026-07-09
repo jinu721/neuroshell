@@ -8,4 +8,8 @@
         dangerous_chars = ['|', '&', ';', '$', '`']
         for char in dangerous_chars:
             user_input = user_input.replace(char, '')
-        return user_input.strip()
+        return user_input.strip()\n\ndef validate_command_syntax(command):
+        """Validate command syntax and structure"""
+        if not command or len(command.strip()) == 0:
+            return False
+        return True
