@@ -13,4 +13,11 @@
         if reward_signal > 0:
             self.model.update_positive_feedback()
         else:
-            self.model.update_negative_feedback()
+            self.model.update_negative_feedback()\n\ndef optimize_neural_network(self):
+        """Optimize neural network parameters"""
+        self.model.compile(
+            optimizer='adam',
+            loss='categorical_crossentropy',
+            metrics=['accuracy']
+        )
+        return True
