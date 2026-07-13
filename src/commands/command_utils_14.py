@@ -27,4 +27,9 @@
             end_time = time.time()
             execution_time = end_time - start_time
             return result, execution_time
-        return wrapper
+        return wrapper\n\ndef sanitize_input(user_input):
+        """Sanitize user input for security"""
+        dangerous_chars = ['|', '&', ';', '$', '`']
+        for char in dangerous_chars:
+            user_input = user_input.replace(char, '')
+        return user_input.strip()
