@@ -19,4 +19,14 @@
         return self._rank_predictions(predictions)
         
     def _rank_predictions(self, predictions):
-        return sorted(predictions, key=lambda x: x.confidence, reverse=True)
+        return sorted(predictions, key=lambda x: x.confidence, reverse=True)\n\nclass AdaptiveLearningEngine:
+    def __init__(self):
+        self.learning_rate = 0.01
+        self.model_weights = {}
+        
+    def update_weights(self, feedback):
+        for key, value in feedback.items():
+            if key in self.model_weights:
+                self.model_weights[key] += self.learning_rate * value
+            else:
+                self.model_weights[key] = value
