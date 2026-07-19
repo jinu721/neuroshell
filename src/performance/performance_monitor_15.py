@@ -39,4 +39,13 @@
             pr.disable()
             pr.print_stats(sort='cumulative')
             return result
+        return wrapper\n\ndef profile_function(func):
+        def wrapper(*args, **kwargs):
+            import cProfile
+            pr = cProfile.Profile()
+            pr.enable()
+            result = func(*args, **kwargs)
+            pr.disable()
+            pr.print_stats(sort='cumulative')
+            return result
         return wrapper
