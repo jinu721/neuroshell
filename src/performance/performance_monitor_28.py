@@ -80,4 +80,22 @@
                 'cpu': sum(self.cpu_usage) / len(self.cpu_usage),
                 'memory': sum(self.memory_usage) / len(self.memory_usage)
             }
-        return {'cpu': 0, 'memory': 0}
+        return {'cpu': 0, 'memory': 0}\n\ndef profile_function(func):
+        def wrapper(*args, **kwargs):
+            import cProfile
+            pr = cProfile.Profile()
+            pr.enable()
+            result = func(*args, **kwargs)
+            pr.disable()
+            pr.print_stats(sort='cumulative')
+            return result
+        return wrapper\n\ndef profile_function(func):
+        def wrapper(*args, **kwargs):
+            import cProfile
+            pr = cProfile.Profile()
+            pr.enable()
+            result = func(*args, **kwargs)
+            pr.disable()
+            pr.print_stats(sort='cumulative')
+            return result
+        return wrapper
