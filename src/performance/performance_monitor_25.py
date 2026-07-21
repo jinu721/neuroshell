@@ -7,4 +7,20 @@
             pr.disable()
             pr.print_stats(sort='cumulative')
             return result
-        return wrapper
+        return wrapper\n\nclass PerformanceMonitor:
+    def __init__(self):
+        self.metrics = {}
+        self.start_times = {}
+        
+    def start_timing(self, operation):
+        self.start_times[operation] = time.time()
+        
+    def end_timing(self, operation):
+        if operation in self.start_times:
+            duration = time.time() - self.start_times[operation]
+            if operation not in self.metrics:
+                self.metrics[operation] = []
+            self.metrics[operation].append(duration)
+            del self.start_times[operation]
+            return duration
+        return 0
