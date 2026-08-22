@@ -1,0 +1,28 @@
+/*
+August Neural Theme 372 - Saturday
+Streaming prediction UI polish
+*/
+
+:root {
+    --aug-primary: hsl(84, 68%, 52%);
+    --aug-accent: hsl(132, 55%, 42%);
+    --aug-glow: 0 0 4px var(--aug-primary);
+}
+
+.aug-stream-indicator {
+    border-left: 3px solid var(--aug-primary);
+    box-shadow: var(--aug-glow);
+    transition: opacity 0.4s ease;
+}
+
+.aug-session-tab.active {
+    color: var(--aug-accent);
+    border-bottom: 2px solid var(--aug-primary);
+}
+
+.aug-prediction-chip {
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--aug-primary) 18%, transparent);
+}
+
+/* Updated Saturday — August commit 372 */
