@@ -1,0 +1,18 @@
+/*
+September Neural Theme 448 - Thursday
+*/
+
+:root {
+    --sep-primary: hsl(72, 65%, 50%);
+    --sep-accent: hsl(64, 58%, 40%);
+}
+
+.sep-agent-panel {
+    border-left: 3px solid var(--sep-primary);
+    border-radius: 8px;
+}
+
+.sep-release-badge {
+    color: var(--sep-accent);
+    font-weight: 600;
+}
