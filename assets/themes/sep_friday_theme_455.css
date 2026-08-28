@@ -1,0 +1,18 @@
+/*
+September Neural Theme 455 - Friday
+*/
+
+:root {
+    --sep-primary: hsl(135, 65%, 50%);
+    --sep-accent: hsl(155, 58%, 40%);
+}
+
+.sep-agent-panel {
+    border-left: 3px solid var(--sep-primary);
+    border-radius: 9px;
+}
+
+.sep-release-badge {
+    color: var(--sep-accent);
+    font-weight: 600;
+}
