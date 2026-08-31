@@ -1,0 +1,18 @@
+/*
+September Neural Theme 498 - Monday
+*/
+
+:root {
+    --sep-primary: hsl(162, 65%, 50%);
+    --sep-accent: hsl(354, 58%, 40%);
+}
+
+.sep-agent-panel {
+    border-left: 3px solid var(--sep-primary);
+    border-radius: 4px;
+}
+
+.sep-release-badge {
+    color: var(--sep-accent);
+    font-weight: 600;
+}
