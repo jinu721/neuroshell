@@ -1,0 +1,18 @@
+/*
+September Neural Theme 505 - Tuesday
+*/
+
+:root {
+    --sep-primary: hsl(225, 65%, 50%);
+    --sep-accent: hsl(85, 58%, 40%);
+}
+
+.sep-agent-panel {
+    border-left: 3px solid var(--sep-primary);
+    border-radius: 5px;
+}
+
+.sep-release-badge {
+    color: var(--sep-accent);
+    font-weight: 600;
+}
