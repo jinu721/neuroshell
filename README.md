@@ -38,3 +38,6 @@ python neuroshell.py --neural
 ## License
 
 MIT License - Built for the future of terminal interaction
+
+
+<!-- refactor note: saturday_524 (#524) -->
