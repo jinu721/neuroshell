@@ -9,3 +9,5 @@ click>=8.0.0
 prompt-toolkit>=3.0.28
 nltk>=3.7
 scikit-learn>=1.0.2
+
+# refactor note: sunday_532
