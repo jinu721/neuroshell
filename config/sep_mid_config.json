@@ -1,0 +1,10 @@
+{
+  "version": "1.4.545",
+  "phase": "sep-mid-2026",
+  "day": "Monday",
+  "quiet_hours": [
+    22,
+    7
+  ],
+  "fuzzy_history": true
+}
