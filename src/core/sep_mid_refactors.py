@@ -22,3 +22,9 @@ def refactor_step_539():
 def refactor_step_551():
     """Pull shared helpers; no behavior change."""
     return {"step": 551, "day": "Tuesday", "kind": "refactor"}
+
+
+# refactor 564 (Wednesday)
+def refactor_step_564():
+    """Pull shared helpers; no behavior change."""
+    return {"step": 564, "day": "Wednesday", "kind": "refactor"}
