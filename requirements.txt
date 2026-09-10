@@ -21,3 +21,5 @@ scikit-learn>=1.0.2
 # feat hook: wednesday_571
 
 # mid-sep chore 584 (Thursday)
+
+# feat hook: thursday_586
