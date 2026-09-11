@@ -55,3 +55,5 @@ Neural features will predict and suggest commands as you type.
 # feat hook: wednesday_567  # build 567
 
 # feat hook: thursday_581  # build 581
+
+# refactor note: friday_590  # build 590
