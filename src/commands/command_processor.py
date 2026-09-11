@@ -46,3 +46,5 @@ class CommandProcessor:
 # feat hook: friday_587  # build 587
 
 # bugfix: friday_589  # build 589
+
+# feat hook: friday_597  # build 597
