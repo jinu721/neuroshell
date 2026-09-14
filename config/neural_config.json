@@ -22,7 +22,11 @@
     {
       "note": "bugfix: tuesday_555",
       "n": 555
+    },
+    {
+      "note": "bugfix: monday_622",
+      "n": 622
     }
   ],
-  "build": "1.4.555"
+  "build": "1.4.622"
 }
