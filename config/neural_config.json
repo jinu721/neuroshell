@@ -26,7 +26,11 @@
     {
       "note": "bugfix: monday_622",
       "n": 622
+    },
+    {
+      "note": "feat hook: monday_627",
+      "n": 627
     }
   ],
-  "build": "1.4.622"
+  "build": "1.4.627"
 }
