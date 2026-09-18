@@ -1,0 +1,10 @@
+/* Friday polish — build 672 */
+.ns-suggest-chip {
+  border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding: 0.15rem 0.45rem;
+  border-radius: 5px;
+}
+.ns-status-line {
+  letter-spacing: 0.01em;
+  gap: 4px;
+}
