@@ -47,3 +47,5 @@ scikit-learn>=1.0.2
 # mid-sep chore 687 (Saturday)
 
 # bugfix: monday_698
+
+# docs sync: monday_704
