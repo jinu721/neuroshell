@@ -46,7 +46,11 @@
     {
       "note": "bugfix: tuesday_715",
       "n": 715
+    },
+    {
+      "note": "docs sync: tuesday_716",
+      "n": 716
     }
   ],
-  "build": "1.4.715"
+  "build": "1.4.716"
 }
