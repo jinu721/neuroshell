@@ -53,3 +53,5 @@ scikit-learn>=1.0.2
 # mid-sep chore 705 (Monday)
 
 # mid-sep chore 717 (Tuesday)
+
+# october chore 830 (Thursday)

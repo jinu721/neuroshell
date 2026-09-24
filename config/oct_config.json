@@ -1,0 +1,8 @@
+{
+  "version": "1.5.830",
+  "phase": "oct-2026",
+  "day": "Thursday",
+  "profile": "default",
+  "completion_cache": true,
+  "slow_command_ms": 800
+}
