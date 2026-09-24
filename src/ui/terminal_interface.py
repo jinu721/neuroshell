@@ -73,3 +73,5 @@ Neural features will predict and suggest commands as you type.
 # bugfix: wednesday_728  # build 728
 
 # feat hook: thursday_821  # build 821
+
+# bugfix: thursday_828  # build 828
