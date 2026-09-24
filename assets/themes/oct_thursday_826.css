@@ -1,0 +1,9 @@
+/* Thursday polish — build 826 */
+.ns-profile-banner {
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+}
+.ns-duration {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
