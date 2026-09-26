@@ -8,3 +8,8 @@ def refactor_step_824():
 # refactor 836 (Friday)
 def refactor_step_836():
     return {"step": 836, "day": "Friday", "kind": "refactor"}
+
+
+# refactor 847 (Saturday)
+def refactor_step_847():
+    return {"step": 847, "day": "Saturday", "kind": "refactor"}
