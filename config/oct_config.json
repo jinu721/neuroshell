@@ -1,7 +1,7 @@
 {
-  "version": "1.5.919",
+  "version": "1.5.945",
   "phase": "oct-2026",
-  "day": "Friday",
+  "day": "Monday",
   "profile": "default",
   "completion_cache": true,
   "slow_command_ms": 800
