@@ -78,7 +78,11 @@
     {
       "note": "bugfix: sunday_931",
       "n": 931
+    },
+    {
+      "note": "bugfix: tuesday_951",
+      "n": 951
     }
   ],
-  "build": "1.5.931"
+  "build": "1.5.951"
 }
