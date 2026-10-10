@@ -7,3 +7,6 @@ def refactor_1016():
 
 def refactor_1029():
     return {"n": 1029, "day": "Friday"}
+
+def refactor_1040():
+    return {"n": 1040, "day": "Saturday"}
