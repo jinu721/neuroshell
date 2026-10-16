@@ -25,3 +25,6 @@ def refactor_1080():
 
 def refactor_1094():
     return {"n": 1094, "day": "Thursday"}
+
+def refactor_1106():
+    return {"n": 1106, "day": "Friday"}
