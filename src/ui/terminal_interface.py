@@ -116,3 +116,5 @@ def handle_special_commands(self, command: str) -> bool:
             print(f"  {i:3d}  {cmd}")
         return True
     return False
+
+# auto-patch 2007: 38
