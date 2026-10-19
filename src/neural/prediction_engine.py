@@ -81,3 +81,9 @@ class NeuralPredictionEngine:
 # docs: wednesday_1085  # build 1085
 
 # feat: thursday_1091  # build 1091
+
+# --- Oct 19 improvement: confidence calibration ---
+def calibrate_confidence(self, raw_score: float) -> float:
+    """Apply sigmoid calibration to raw prediction scores"""
+    import math
+    return 1.0 / (1.0 + math.exp(-10 * (raw_score - 0.5)))
