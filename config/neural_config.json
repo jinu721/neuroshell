@@ -122,6 +122,10 @@
     {
       "patch": 2014,
       "note": "auto patch 2014"
+    },
+    {
+      "patch": 2020,
+      "note": "auto patch 2020"
     }
   ],
   "build": "1.7.1200"
