@@ -114,6 +114,10 @@
     {
       "patch": 2012,
       "note": "auto patch 2012"
+    },
+    {
+      "patch": 2013,
+      "note": "auto patch 2013"
     }
   ],
   "build": "1.7.1200"
