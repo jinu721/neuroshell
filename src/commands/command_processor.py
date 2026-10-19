@@ -90,3 +90,5 @@ def execute_with_timeout(self, command: str, timeout: int = 30) -> dict:
         return {'success': False, 'output': '', 'error': f'Command timed out after {timeout}s'}
 
 # auto-patch 2001: 536
+
+# auto-patch 2008: 401
