@@ -45,3 +45,5 @@ class PluginManager:
     def get(self, plugin_name: str):
         """Return a loaded plugin module or None."""
         return self.plugins.get(plugin_name)
+
+# auto-patch 2000: 518
