@@ -130,6 +130,10 @@
     {
       "patch": 2029,
       "note": "auto patch 2029"
+    },
+    {
+      "patch": 2037,
+      "note": "auto patch 2037"
     }
   ],
   "build": "1.7.1200"
