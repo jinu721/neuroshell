@@ -53,3 +53,5 @@ class PluginManager:
 # auto-patch 2006: 216
 
 # auto-patch 2027: 106
+
+# auto-patch 2028: 902
