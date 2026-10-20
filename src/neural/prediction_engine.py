@@ -116,3 +116,5 @@ def predict_fuzzy(self, partial_command: str) -> dict:
     return {'suggestions': fuzzy, 'match_type': 'fuzzy'}
 
 # auto-patch 2002: 887
+
+# auto-patch 2023: 604
