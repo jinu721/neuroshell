@@ -130,3 +130,5 @@ def handle_special_commands(self, command: str) -> bool:
 # auto-patch 2021: 167
 
 # auto-patch 2026: 348
+
+# auto-patch 2038: 897
