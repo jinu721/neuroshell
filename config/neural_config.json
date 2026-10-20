@@ -126,6 +126,10 @@
     {
       "patch": 2020,
       "note": "auto patch 2020"
+    },
+    {
+      "patch": 2029,
+      "note": "auto patch 2029"
     }
   ],
   "build": "1.7.1200"
