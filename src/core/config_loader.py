@@ -36,3 +36,5 @@ class ConfigLoader:
 
     def get(self, key: str, default: Any = None) -> Any:
         return self._config.get(key, default)
+
+# auto-patch 2022: 536
