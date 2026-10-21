@@ -134,6 +134,10 @@
     {
       "patch": 2037,
       "note": "auto patch 2037"
+    },
+    {
+      "patch": 2049,
+      "note": "auto patch 2049"
     }
   ],
   "build": "1.7.1200"
