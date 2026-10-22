@@ -142,6 +142,10 @@
     {
       "patch": 2060,
       "note": "auto patch 2060"
+    },
+    {
+      "patch": 2071,
+      "note": "auto patch 2071"
     }
   ],
   "build": "1.7.1200"
