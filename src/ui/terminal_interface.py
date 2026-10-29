@@ -164,3 +164,5 @@ def handle_special_commands(self, command: str) -> bool:
 # auto-patch 2183: 415
 
 # auto-patch 2237: 807
+
+# auto-patch 2241: 356
