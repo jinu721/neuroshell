@@ -87,3 +87,11 @@ def calibrate_confidence(self, raw_score: float) -> float:
     """Apply sigmoid calibration to raw prediction scores"""
     import math
     return 1.0 / (1.0 + math.exp(-10 * (raw_score - 0.5)))
+
+# --- Oct 29 improvement: cap history size ---
+MAX_HISTORY = 500
+
+def trim_history(self):
+    """Keep command history bounded to MAX_HISTORY entries"""
+    if len(self.command_history) > self.MAX_HISTORY:
+        self.command_history = self.command_history[-self.MAX_HISTORY:]
