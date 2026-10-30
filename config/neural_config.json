@@ -222,6 +222,10 @@
     {
       "patch": 2236,
       "note": "auto patch 2236"
+    },
+    {
+      "patch": 2254,
+      "note": "auto patch 2254"
     }
   ],
   "build": "1.7.1200"
