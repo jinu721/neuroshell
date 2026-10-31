@@ -72,3 +72,19 @@ class CommandProcessor:
 # feat: friday_1109  # build 1109
 
 # fix: saturday_1121  # build 1121
+
+# --- Oct 31 improvement: execution timeout ---
+def execute_with_timeout(self, command: str, timeout: int = 30) -> dict:
+    """Execute command with a configurable timeout (seconds)"""
+    import subprocess
+    try:
+        result = subprocess.run(
+            command,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=timeout
+        )
+        return {'success': result.returncode == 0, 'output': result.stdout, 'error': result.stderr}
+    except subprocess.TimeoutExpired:
+        return {'success': False, 'output': '', 'error': f'Command timed out after {timeout}s'}
