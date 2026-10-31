@@ -108,3 +108,5 @@ if __name__ == "__main__":
 # auto-patch 2280: 981
 
 # auto-patch 2281: 607
+
+# auto-patch 2282: 580
