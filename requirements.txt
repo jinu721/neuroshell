@@ -159,3 +159,5 @@ scikit-learn>=1.0.2
 # patch 2293
 
 # patch 2315
+
+# patch 2325
