@@ -99,3 +99,20 @@ Neural features will predict and suggest commands as you type.
 # feat: saturday_1120  # build 1120
 
 # fix: sunday_1125  # build 1125
+
+# --- Nov 3 improvement: clear history command ---
+def clear_screen(self):
+    """Clear the terminal screen"""
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def handle_special_commands(self, command: str) -> bool:
+    """Handle built-in special commands; returns True if handled"""
+    if command == 'clear':
+        self.clear_screen()
+        return True
+    if command == 'history':
+        for i, cmd in enumerate(self._session_history, 1):
+            print(f"  {i:3d}  {cmd}")
+        return True
+    return False
