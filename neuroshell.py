@@ -16,7 +16,7 @@ class NeuroShell:
         self.neural_engine = NeuralPredictionEngine()
         self.command_processor = CommandProcessor()
         self.terminal_ui = TerminalInterface()
-        self.version = "1.0.0"
+        self.version = "1.1.0"
     
     def run(self):
         """Start the NeuroShell interactive terminal"""
@@ -32,7 +32,7 @@ class NeuroShell:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="NeuroShell - AI-Powered Terminal")
-    parser.add_argument("--version", action="version", version="NeuroShell 1.0.0")
+    parser.add_argument("--version", action="version", version="NeuroShell 1.1.0")
     parser.add_argument("--neural", action="store_true", help="Enable neural prediction")
     
     args = parser.parse_args()
