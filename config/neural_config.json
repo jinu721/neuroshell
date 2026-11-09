@@ -306,6 +306,10 @@
     {
       "patch": 2465,
       "note": "auto patch 2465"
+    },
+    {
+      "patch": 2466,
+      "note": "auto patch 2466"
     }
   ],
   "build": "1.7.1200"
