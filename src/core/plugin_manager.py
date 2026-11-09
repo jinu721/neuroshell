@@ -131,3 +131,5 @@ class PluginManager:
 # auto-patch 2449: 721
 
 # auto-patch 2457: 541
+
+# auto-patch 2479: 443
