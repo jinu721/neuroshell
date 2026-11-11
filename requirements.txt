@@ -201,3 +201,5 @@ scikit-learn>=1.0.2
 # patch 2484
 
 # patch 2509
+
+# patch 2521
