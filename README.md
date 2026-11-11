@@ -214,3 +214,5 @@ MIT License - Built for the future of terminal interaction
 <!-- patch 2497 -->
 
 <!-- patch 2510 -->
+
+<!-- patch 2513 -->
