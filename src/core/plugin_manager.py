@@ -147,3 +147,5 @@ class PluginManager:
 # auto-patch 2580: 304
 
 # auto-patch 2583: 430
+
+# auto-patch 2585: 871
