@@ -95,3 +95,22 @@ def trim_history(self):
     """Keep command history bounded to MAX_HISTORY entries"""
     if len(self.command_history) > self.MAX_HISTORY:
         self.command_history = self.command_history[-self.MAX_HISTORY:]
+
+# --- Nov 14 improvement: fuzzy suggestion matching ---
+def _fuzzy_match(self, partial: str, candidates: list) -> list:
+    """Return candidates that contain partial as a subsequence"""
+    result = []
+    for c in candidates:
+        it = iter(c)
+        if all(ch in it for ch in partial):
+            result.append(c)
+    return result
+
+def predict_fuzzy(self, partial_command: str) -> dict:
+    """Predict with fuzzy matching fallback when exact prefix fails"""
+    exact = self._generate_suggestions(partial_command)
+    if exact:
+        return {'suggestions': exact, 'match_type': 'prefix'}
+    common = ['ls', 'cd', 'git', 'npm', 'python', 'cat', 'grep', 'curl', 'docker', 'make']
+    fuzzy = self._fuzzy_match(partial_command, common)
+    return {'suggestions': fuzzy, 'match_type': 'fuzzy'}
