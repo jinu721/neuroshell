@@ -154,3 +154,5 @@ class ConfigLoader:
 # auto-patch 2590: 887
 
 # auto-patch 2596: 414
+
+# auto-patch 2597: 617
