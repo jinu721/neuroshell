@@ -227,3 +227,5 @@ scikit-learn>=1.0.2
 # patch 2653
 
 # patch 2654
+
+# patch 2679
