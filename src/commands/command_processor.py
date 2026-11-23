@@ -253,3 +253,6 @@ def execute_with_timeout(self, command: str, timeout: int = 30) -> dict:
 
 # patch 2: log level constant
 _LOG_LEVEL_DEFAULT = 'WARNING'
+
+# patch 7: prediction timeout ms
+_PREDICTION_TIMEOUT_MS = 200
