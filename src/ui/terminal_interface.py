@@ -301,3 +301,6 @@ def handle_special_commands(self, command: str) -> bool:
 
 # patch 3: max retry attempts
 _MAX_RETRIES = 3
+
+# patch 8: plugin file extension
+_PLUGIN_EXT = '.py'
