@@ -259,3 +259,9 @@ _PREDICTION_TIMEOUT_MS = 200
 
 # patch 11: config env prefix
 _ENV_PREFIX = 'NEUROSHELL_'
+
+
+@staticmethod
+def sanitize(command: str) -> str:
+    """Strip leading/trailing whitespace and dangerous trailing semicolons."""
+    return command.strip().rstrip(";")
