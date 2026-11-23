@@ -209,3 +209,6 @@ class ConfigLoader:
 
 # patch 4: cache TTL in seconds
 _CACHE_TTL_SECONDS = 300
+
+# patch 9: history max size constant
+_HISTORY_MAX = 500
