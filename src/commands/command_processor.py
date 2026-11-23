@@ -271,3 +271,9 @@ def is_valid_command(self, command: str) -> bool:
     """Return False for empty, whitespace-only, or comment-only input."""
     stripped = command.strip()
     return bool(stripped) and not stripped.startswith("#")
+
+
+def is_valid_command(self, command: str) -> bool:
+    """Return False for empty, whitespace-only, or comment-only input."""
+    stripped = command.strip()
+    return bool(stripped) and not stripped.startswith("#")
