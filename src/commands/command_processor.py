@@ -345,3 +345,19 @@ def pipeline_execute(self, commands: list) -> list:
         if not r.get("success"):
             break
     return results
+
+
+def execute_binary_safe(self, command: str) -> dict:
+    """Run command and decode output safely, replacing bad bytes."""
+    import subprocess
+    try:
+        result = subprocess.run(
+            command, shell=True, capture_output=True, timeout=30
+        )
+        return {
+            "success": result.returncode == 0,
+            "output": result.stdout.decode("utf-8", errors="replace"),
+            "error":  result.stderr.decode("utf-8", errors="replace"),
+        }
+    except subprocess.TimeoutExpired:
+        return {"success": False, "output": "", "error": "timeout"}
