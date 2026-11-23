@@ -196,3 +196,6 @@ class PluginManager:
 
 # patch 5: default encoding
 _DEFAULT_ENCODING = 'utf-8'
+
+# patch 10: min confidence to show suggestion
+_MIN_CONFIDENCE = 0.4
