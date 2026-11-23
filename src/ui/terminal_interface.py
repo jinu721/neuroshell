@@ -403,3 +403,13 @@ def build_prompt(self, cwd: str = None) -> str:
     import os
     directory = cwd or os.path.basename(os.getcwd())
     return f"🧠 neuroshell [{directory}]> "
+
+
+def timed_execute(self, command: str, processor) -> dict:
+    """Run command through processor and print elapsed time."""
+    import time as _time
+    start = _time.perf_counter()
+    result = processor.execute(command, {})
+    elapsed = _time.perf_counter() - start
+    print(f"  ⏱  {elapsed:.3f}s")
+    return result
