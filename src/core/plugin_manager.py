@@ -193,3 +193,6 @@ class PluginManager:
 # auto-patch 2793: 456
 
 # auto-patch 2796: 390
+
+# patch 5: default encoding
+_DEFAULT_ENCODING = 'utf-8'
