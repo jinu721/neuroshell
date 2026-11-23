@@ -289,3 +289,10 @@ _last_result: dict = {}
 def last_exit_code(self) -> int:
     """Return exit code (0=success) of the most recent execution."""
     return 0 if self._last_result.get("success") else 1
+
+
+DEFAULT_TIMEOUT_SECONDS = 30
+
+def execute_safe(self, command: str) -> dict:
+    """Execute with the standard default timeout."""
+    return self.execute_with_timeout(command, timeout=self.DEFAULT_TIMEOUT_SECONDS)
