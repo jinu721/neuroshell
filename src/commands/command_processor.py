@@ -334,3 +334,14 @@ def execute_binary_safe(self, command: str) -> dict:
         }
     except subprocess.TimeoutExpired:
         return {"success": False, "output": "", "error": "timeout"}
+
+
+def pipeline_execute(self, commands: list) -> list:
+    """Execute a list of commands in sequence, stopping on first failure."""
+    results = []
+    for cmd in commands:
+        r = self.execute(cmd, {})
+        results.append(r)
+        if not r.get("success"):
+            break
+    return results
