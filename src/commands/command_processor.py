@@ -265,3 +265,9 @@ _ENV_PREFIX = 'NEUROSHELL_'
 def sanitize(command: str) -> str:
     """Strip leading/trailing whitespace and dangerous trailing semicolons."""
     return command.strip().rstrip(";")
+
+
+def is_valid_command(self, command: str) -> bool:
+    """Return False for empty, whitespace-only, or comment-only input."""
+    stripped = command.strip()
+    return bool(stripped) and not stripped.startswith("#")
