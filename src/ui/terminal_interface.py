@@ -365,3 +365,10 @@ def confirm_prompt(self, message: str) -> bool:
         return answer in ("y", "yes")
     except (KeyboardInterrupt, EOFError):
         return False
+
+
+def build_prompt(self, cwd: str = None) -> str:
+    """Build the prompt string, optionally including current directory."""
+    import os
+    directory = cwd or os.path.basename(os.getcwd())
+    return f"🧠 neuroshell [{directory}]> "
