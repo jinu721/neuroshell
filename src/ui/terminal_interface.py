@@ -325,3 +325,15 @@ def render_status_bar(self, cmd_count: int, success_rate: float) -> str:
     """Return a formatted status bar string for the terminal footer."""
     bar = f" cmds: {cmd_count} | success: {success_rate:.0%} | NeuroShell "
     return bar.center(80, "─")
+
+
+def print_banner(self) -> None:
+    """Print the NeuroShell ASCII art startup banner."""
+    banner = (
+        "  _   _                      ____  _          _ _\n"
+        " | \ | | ___ _   _ _ __ ___ / ___|| |__   ___| | |\n"
+        " |  \| |/ _ \ | | | '__/ _ \\___ \| '_ \ / _ \ | |\n"
+        " | |\  |  __/ |_| | | | (_) |__) | | | |  __/ | |\n"
+        " |_| \_|\___|\__,_|_|  \___/____/|_| |_|\___|_|_|\n"
+    )
+    print(banner)
