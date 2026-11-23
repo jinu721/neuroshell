@@ -337,3 +337,16 @@ def print_banner(self) -> None:
         " |_| \_|\___|\__,_|_|  \___/____/|_| |_|\___|_|_|\n"
     )
     print(banner)
+
+
+            def paged_print(self, text: str, page_size: int = 20) -> None:
+                """Print long output page by page, waiting for Enter between pages."""
+                lines = text.splitlines()
+                for i in range(0, len(lines), page_size):
+                    print("
+".join(lines[i:i + page_size]))
+                    if i + page_size < len(lines):
+                        try:
+                            input("── Press Enter for next page ──")
+                        except (KeyboardInterrupt, EOFError):
+                            break
