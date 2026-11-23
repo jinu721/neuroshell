@@ -298,3 +298,6 @@ def handle_special_commands(self, command: str) -> bool:
 # auto-patch 2780: 542
 
 # auto-patch 2782: 419
+
+# patch 3: max retry attempts
+_MAX_RETRIES = 3
