@@ -372,3 +372,16 @@ def build_prompt(self, cwd: str = None) -> str:
     import os
     directory = cwd or os.path.basename(os.getcwd())
     return f"🧠 neuroshell [{directory}]> "
+
+
+            def paged_print(self, text: str, page_size: int = 20) -> None:
+                """Print long output page by page, waiting for Enter between pages."""
+                lines = text.splitlines()
+                for i in range(0, len(lines), page_size):
+                    print("
+".join(lines[i:i + page_size]))
+                    if i + page_size < len(lines):
+                        try:
+                            input("── Press Enter for next page ──")
+                        except (KeyboardInterrupt, EOFError):
+                            break
