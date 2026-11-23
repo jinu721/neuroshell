@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
 NeuroShell - AI-Powered Terminal
-Advanced neural command prediction and intelligent terminal interface
+A real working shell with neural command prediction.
 """
 
 import sys
 import os
 import argparse
+
+# Make sure src is importable
+sys.path.insert(0, os.path.dirname(__file__))
+
 from src.neural.prediction_engine import NeuralPredictionEngine
 from src.commands.command_processor import CommandProcessor
 from src.ui.terminal_interface import TerminalInterface
@@ -14,193 +18,63 @@ from src.core.config_loader import ConfigLoader
 from src.core.plugin_manager import PluginManager
 
 
-class NeuroShell:
-    def __init__(self):
-        self.config = ConfigLoader().load()
-        self.neural_engine = NeuralPredictionEngine()
-        self.command_processor = CommandProcessor()
-        self.terminal_ui = TerminalInterface()
-        self.plugin_manager = PluginManager()
-        self.version = "1.2.0"
+VERSION = "2.0.0"
 
-        # Boot plugins
-        loaded = self.plugin_manager.load_all()
-        if loaded:
-            print(f"🔌 Loaded {loaded} plugin(s)")
+
+class NeuroShell:
+    def __init__(self, no_plugins: bool = False):
+        self.config           = ConfigLoader().load()
+        self.neural_engine    = NeuralPredictionEngine()
+        self.command_processor = CommandProcessor()
+        self.terminal_ui      = TerminalInterface(
+            neural_engine     = self.neural_engine,
+            command_processor = self.command_processor,
+        )
+        self.plugin_manager   = PluginManager()
+
+        if not no_plugins:
+            loaded = self.plugin_manager.load_all()
+            if loaded:
+                print(f"🔌 Loaded {loaded} plugin(s)")
 
     def run(self):
-        """Start the NeuroShell interactive terminal"""
-        print(f"🧠 NeuroShell v{self.version} - AI-Powered Terminal")
-        print("Neural prediction engine loaded. Type 'help' for commands.")
         self.terminal_ui.start_interactive_mode()
 
-    def execute_command(self, command: str):
-        """Execute a command with neural prediction"""
+    def execute_one(self, command: str):
+        """Run a single command non-interactively (for scripting)."""
         prediction = self.neural_engine.predict_intent(command)
-        return self.command_processor.execute(command, prediction)
+        result     = self.command_processor.execute(command, prediction)
+        if result.get("output"):
+            print(result["output"], end="")
+        if result.get("error"):
+            print(result["error"], end="", file=sys.stderr)
+        return 0 if result["success"] else 1
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="NeuroShell - AI-Powered Terminal")
-    parser.add_argument("--version", action="version", version="NeuroShell 1.2.0")
-    parser.add_argument("--neural", action="store_true", help="Enable neural prediction")
-    parser.add_argument("--no-plugins", action="store_true", help="Disable plugin loading")
+def main():
+    parser = argparse.ArgumentParser(
+        description="NeuroShell — AI-powered terminal",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  neuroshell                    start interactive shell
+  neuroshell -c "git status"    run a single command
+  neuroshell --no-plugins       start without loading plugins
+        """
+    )
+    parser.add_argument("--version",    action="version", version=f"NeuroShell {VERSION}")
+    parser.add_argument("-c", "--cmd",  metavar="CMD", help="run a single command and exit")
+    parser.add_argument("--no-plugins", action="store_true", help="skip plugin loading")
 
     args = parser.parse_args()
 
-    shell = NeuroShell()
-    shell.run()
+    shell = NeuroShell(no_plugins=args.no_plugins)
 
-# auto-patch 2024: 438
+    if args.cmd:
+        sys.exit(shell.execute_one(args.cmd))
+    else:
+        shell.run()
 
-# auto-patch 2032: 417
 
-# auto-patch 2033: 630
-
-# auto-patch 2041: 781
-
-# auto-patch 2066: 707
-
-# auto-patch 2068: 178
-
-# auto-patch 2074: 54
-
-# auto-patch 2078: 758
-
-# auto-patch 2106: 755
-
-# auto-patch 2110: 136
-
-# auto-patch 2113: 195
-
-# auto-patch 2117: 409
-
-# auto-patch 2118: 306
-
-# auto-patch 2120: 956
-
-# auto-patch 2122: 554
-
-# auto-patch 2128: 267
-
-# auto-patch 2149: 914
-
-# auto-patch 2155: 425
-
-# auto-patch 2157: 639
-
-# auto-patch 2207: 277
-
-# auto-patch 2211: 459
-
-# auto-patch 2228: 581
-
-# auto-patch 2231: 381
-
-# auto-patch 2244: 727
-
-# auto-patch 2252: 324
-
-# auto-patch 2259: 580
-
-# auto-patch 2266: 195
-
-# auto-patch 2280: 981
-
-# auto-patch 2281: 607
-
-# auto-patch 2282: 580
-
-# auto-patch 2285: 736
-
-# auto-patch 2306: 824
-
-# auto-patch 2318: 938
-
-# auto-patch 2322: 285
-
-# auto-patch 2334: 692
-
-# auto-patch 2351: 874
-
-# auto-patch 2360: 48
-
-# auto-patch 2372: 120
-
-# auto-patch 2385: 878
-
-# auto-patch 2390: 933
-
-# auto-patch 2409: 839
-
-# auto-patch 2414: 222
-
-# auto-patch 2420: 260
-
-# auto-patch 2421: 915
-
-# auto-patch 2424: 897
-
-# auto-patch 2425: 324
-
-# auto-patch 2430: 518
-
-# auto-patch 2436: 220
-
-# auto-patch 2451: 395
-
-# auto-patch 2486: 268
-
-# auto-patch 2489: 818
-
-# auto-patch 2506: 325
-
-# auto-patch 2517: 444
-
-# auto-patch 2530: 44
-
-# auto-patch 2541: 654
-
-# auto-patch 2545: 398
-
-# auto-patch 2554: 743
-
-# auto-patch 2564: 864
-
-# auto-patch 2565: 980
-
-# auto-patch 2577: 263
-
-# auto-patch 2582: 775
-
-# auto-patch 2584: 298
-
-# auto-patch 2593: 534
-
-# auto-patch 2607: 524
-
-# auto-patch 2631: 529
-
-# auto-patch 2634: 122
-
-# auto-patch 2648: 163
-
-# auto-patch 2668: 721
-
-# auto-patch 2676: 520
-
-# auto-patch 2703: 210
-
-# auto-patch 2705: 163
-
-# auto-patch 2709: 355
-
-# auto-patch 2733: 457
-
-# auto-patch 2760: 355
-
-# auto-patch 2784: 340
-
-# auto-patch 2785: 913
-
-# auto-patch 2799: 793
+if __name__ == "__main__":
+    main()
