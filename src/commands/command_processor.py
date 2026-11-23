@@ -271,3 +271,14 @@ def is_valid_command(self, command: str) -> bool:
     """Return False for empty, whitespace-only, or comment-only input."""
     stripped = command.strip()
     return bool(stripped) and not stripped.startswith("#")
+
+
+_aliases: dict = {}
+
+def register_alias(self, alias: str, command: str) -> None:
+    """Register a shorthand alias for a full command string."""
+    self._aliases[alias] = command
+
+def resolve_alias(self, input_cmd: str) -> str:
+    """Expand an alias to its full command, or return unchanged."""
+    return self._aliases.get(input_cmd, input_cmd)
