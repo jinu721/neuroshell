@@ -250,3 +250,6 @@ def execute_with_timeout(self, command: str, timeout: int = 30) -> dict:
 # auto-patch 2783: 857
 
 # auto-patch 2786: 431
+
+# patch 2: log level constant
+_LOG_LEVEL_DEFAULT = 'WARNING'
