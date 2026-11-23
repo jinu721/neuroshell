@@ -241,3 +241,6 @@ def predict_fuzzy(self, partial_command: str) -> dict:
 
 # patch 1: guard against zero-length input
 _EMPTY_INPUT_SENTINEL = object()
+
+# patch 6: suggestion batch size
+_SUGGESTION_BATCH = 10
