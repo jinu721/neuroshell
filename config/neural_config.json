@@ -474,6 +474,10 @@
     {
       "patch": 2787,
       "note": "auto patch 2787"
+    },
+    {
+      "patch": 2788,
+      "note": "auto patch 2788"
     }
   ],
   "build": "1.7.1200"
