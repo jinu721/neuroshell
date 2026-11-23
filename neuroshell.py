@@ -10,74 +10,43 @@ import argparse
 from src.neural.prediction_engine import NeuralPredictionEngine
 from src.commands.command_processor import CommandProcessor
 from src.ui.terminal_interface import TerminalInterface
+from src.core.config_loader import ConfigLoader
+from src.core.plugin_manager import PluginManager
+
 
 class NeuroShell:
     def __init__(self):
+        self.config = ConfigLoader().load()
         self.neural_engine = NeuralPredictionEngine()
         self.command_processor = CommandProcessor()
         self.terminal_ui = TerminalInterface()
-        self.version = "1.1.0"
-    
+        self.plugin_manager = PluginManager()
+        self.version = "1.2.0"
+
+        # Boot plugins
+        loaded = self.plugin_manager.load_all()
+        if loaded:
+            print(f"🔌 Loaded {loaded} plugin(s)")
+
     def run(self):
         """Start the NeuroShell interactive terminal"""
         print(f"🧠 NeuroShell v{self.version} - AI-Powered Terminal")
         print("Neural prediction engine loaded. Type 'help' for commands.")
-        
         self.terminal_ui.start_interactive_mode()
-    
-    def execute_command(self, command):
+
+    def execute_command(self, command: str):
         """Execute a command with neural prediction"""
         prediction = self.neural_engine.predict_intent(command)
         return self.command_processor.execute(command, prediction)
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="NeuroShell - AI-Powered Terminal")
-    parser.add_argument("--version", action="version", version="NeuroShell 1.1.0")
+    parser.add_argument("--version", action="version", version="NeuroShell 1.2.0")
     parser.add_argument("--neural", action="store_true", help="Enable neural prediction")
-    
+    parser.add_argument("--no-plugins", action="store_true", help="Disable plugin loading")
+
     args = parser.parse_args()
-    
+
     shell = NeuroShell()
     shell.run()
-
-# feat hook: saturday_521  # build 521
-
-# feat hook: tuesday_548  # build 548
-
-# feat hook: tuesday_558  # build 558
-
-# bugfix: wednesday_568  # build 568
-
-# refactor note: saturday_601  # build 601
-
-# feat hook: sunday_607  # build 607
-
-# bugfix: monday_617  # build 617
-
-# feat hook: wednesday_653  # build 653
-
-# bugfix: sunday_690  # build 690
-
-# docs sync: wednesday_729  # build 729
-
-# feat hook: thursday_827  # build 827
-
-# feat hook: thursday_832  # build 832
-
-# feat hook: saturday_850  # build 850
-
-# refactor note: friday_913  # build 913
-
-# bugfix: saturday_923  # build 923
-
-# feat hook: monday_936  # build 936
-
-# feat: friday_1026  # build 1026
-
-# fix: saturday_1044  # build 1044
-
-# feat: monday_1053  # build 1053
-
-# feat: tuesday_1066  # build 1066
-
-# docs: friday_1111  # build 1111
