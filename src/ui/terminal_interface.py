@@ -307,3 +307,15 @@ _PLUGIN_EXT = '.py'
 
 # patch 12: default theme name
 _DEFAULT_THEME = 'neural_dark'
+
+
+def print_banner(self) -> None:
+    """Print the NeuroShell ASCII art startup banner."""
+    banner = (
+        "  _   _                      ____  _          _ _\n"
+        " | \ | | ___ _   _ _ __ ___ / ___|| |__   ___| | |\n"
+        " |  \| |/ _ \ | | | '__/ _ \\___ \| '_ \ / _ \ | |\n"
+        " | |\  |  __/ |_| | | | (_) |__) | | | |  __/ | |\n"
+        " |_| \_|\___|\__,_|_|  \___/____/|_| |_|\___|_|_|\n"
+    )
+    print(banner)
