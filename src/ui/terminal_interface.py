@@ -396,3 +396,10 @@ def set_theme(self, theme: str) -> bool:
         return False
     self._active_theme = theme
     return True
+
+
+def build_prompt(self, cwd: str = None) -> str:
+    """Build the prompt string, optionally including current directory."""
+    import os
+    directory = cwd or os.path.basename(os.getcwd())
+    return f"🧠 neuroshell [{directory}]> "
