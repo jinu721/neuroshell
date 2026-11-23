@@ -256,3 +256,6 @@ _LOG_LEVEL_DEFAULT = 'WARNING'
 
 # patch 7: prediction timeout ms
 _PREDICTION_TIMEOUT_MS = 200
+
+# patch 11: config env prefix
+_ENV_PREFIX = 'NEUROSHELL_'
