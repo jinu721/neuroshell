@@ -244,3 +244,6 @@ _EMPTY_INPUT_SENTINEL = object()
 
 # patch 6: suggestion batch size
 _SUGGESTION_BATCH = 10
+
+# patch 11: subprocess timeout seconds
+_SUBPROCESS_TIMEOUT = 30
