@@ -296,3 +296,10 @@ DEFAULT_TIMEOUT_SECONDS = 30
 def execute_safe(self, command: str) -> dict:
     """Execute with the standard default timeout."""
     return self.execute_with_timeout(command, timeout=self.DEFAULT_TIMEOUT_SECONDS)
+
+
+DEFAULT_TIMEOUT_SECONDS = 30
+
+def execute_safe(self, command: str) -> dict:
+    """Execute with the standard default timeout."""
+    return self.execute_with_timeout(command, timeout=self.DEFAULT_TIMEOUT_SECONDS)
