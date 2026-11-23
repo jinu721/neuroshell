@@ -282,3 +282,10 @@ def register_alias(self, alias: str, command: str) -> None:
 def resolve_alias(self, input_cmd: str) -> str:
     """Expand an alias to its full command, or return unchanged."""
     return self._aliases.get(input_cmd, input_cmd)
+
+
+_last_result: dict = {}
+
+def last_exit_code(self) -> int:
+    """Return exit code (0=success) of the most recent execution."""
+    return 0 if self._last_result.get("success") else 1
