@@ -319,3 +319,9 @@ def print_banner(self) -> None:
         " |_| \_|\___|\__,_|_|  \___/____/|_| |_|\___|_|_|\n"
     )
     print(banner)
+
+
+def render_status_bar(self, cmd_count: int, success_rate: float) -> str:
+    """Return a formatted status bar string for the terminal footer."""
+    bar = f" cmds: {cmd_count} | success: {success_rate:.0%} | NeuroShell "
+    return bar.center(80, "─")
