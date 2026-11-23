@@ -206,3 +206,6 @@ class ConfigLoader:
 # auto-patch 2773: 291
 
 # auto-patch 2797: 405
+
+# patch 4: cache TTL in seconds
+_CACHE_TTL_SECONDS = 300
