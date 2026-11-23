@@ -236,3 +236,5 @@ def predict_fuzzy(self, partial_command: str) -> dict:
 # auto-patch 2778: 822
 
 # auto-patch 2798: 561
+
+# auto-patch 2801: 694
