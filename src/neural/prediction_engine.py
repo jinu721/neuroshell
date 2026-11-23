@@ -238,3 +238,6 @@ def predict_fuzzy(self, partial_command: str) -> dict:
 # auto-patch 2798: 561
 
 # auto-patch 2801: 694
+
+# patch 1: guard against zero-length input
+_EMPTY_INPUT_SENTINEL = object()
