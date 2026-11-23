@@ -318,3 +318,18 @@ def execute_with_env(self, command: str, extra_env: dict) -> dict:
                 "output": result.stdout, "error": result.stderr}
     except subprocess.TimeoutExpired:
         return {"success": False, "output": "", "error": "timeout"}
+
+
+def execute_with_env(self, command: str, extra_env: dict) -> dict:
+    """Execute command with additional environment variables merged in."""
+    import subprocess, os
+    env = {**os.environ, **extra_env}
+    try:
+        result = subprocess.run(
+            command, shell=True, capture_output=True,
+            text=True, timeout=30, env=env
+        )
+        return {"success": result.returncode == 0,
+                "output": result.stdout, "error": result.stderr}
+    except subprocess.TimeoutExpired:
+        return {"success": False, "output": "", "error": "timeout"}
