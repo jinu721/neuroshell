@@ -356,3 +356,12 @@ def render_status_bar(self, cmd_count: int, success_rate: float) -> str:
     """Return a formatted status bar string for the terminal footer."""
     bar = f" cmds: {cmd_count} | success: {success_rate:.0%} | NeuroShell "
     return bar.center(80, "─")
+
+
+def confirm_prompt(self, message: str) -> bool:
+    """Ask the user yes/no and return True only on explicit 'y'/'yes'."""
+    try:
+        answer = input(f"⚠️  {message} [y/N]: ").strip().lower()
+        return answer in ("y", "yes")
+    except (KeyboardInterrupt, EOFError):
+        return False
