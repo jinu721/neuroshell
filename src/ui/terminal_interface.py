@@ -385,3 +385,14 @@ def build_prompt(self, cwd: str = None) -> str:
                             input("── Press Enter for next page ──")
                         except (KeyboardInterrupt, EOFError):
                             break
+
+
+AVAILABLE_THEMES = ("neural_dark", "light", "solarized", "monokai")
+
+def set_theme(self, theme: str) -> bool:
+    """Switch the active colour theme; returns False if unknown."""
+    if theme not in self.AVAILABLE_THEMES:
+        print(f"Unknown theme '{theme}'. Available: {', '.join(self.AVAILABLE_THEMES)}")
+        return False
+    self._active_theme = theme
+    return True
