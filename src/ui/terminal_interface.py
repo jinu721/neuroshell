@@ -304,3 +304,6 @@ _MAX_RETRIES = 3
 
 # patch 8: plugin file extension
 _PLUGIN_EXT = '.py'
+
+# patch 12: default theme name
+_DEFAULT_THEME = 'neural_dark'
