@@ -230,3 +230,10 @@ class ConfigLoader:
             return int(self._config.get(key, default))
         except (TypeError, ValueError):
             return default
+
+    def get_list(self, key: str, default: list = None) -> list:
+        """Return config value as a list, splitting on commas if a string."""
+        val = self._config.get(key, default or [])
+        if isinstance(val, list):
+            return val
+        return [item.strip() for item in str(val).split(",") if item.strip()]
