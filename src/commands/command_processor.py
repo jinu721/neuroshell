@@ -144,3 +144,14 @@ class CommandProcessor:
 
     def add_to_history(self, command: str):
         self._session_history.append(command)
+
+
+    def execute_pipeline(self, commands: list) -> list:
+        """Run multiple commands in sequence, stopping on first failure."""
+        results = []
+        for cmd in commands:
+            r = self.execute(cmd)
+            results.append(r)
+            if not r.get("success"):
+                break
+        return results
