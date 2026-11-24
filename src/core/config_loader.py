@@ -237,3 +237,7 @@ class ConfigLoader:
         if isinstance(val, list):
             return val
         return [item.strip() for item in str(val).split(",") if item.strip()]
+
+    def to_dict(self) -> dict:
+        """Return a shallow copy of the current config as a plain dict."""
+        return dict(self._config)
