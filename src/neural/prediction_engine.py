@@ -230,3 +230,17 @@ class NeuralPredictionEngine:
             "py":   "python3",
             "ll":   "ls -la",
         }
+
+    def suggest_for_error(self, stderr: str) -> list:
+        """Return likely fix commands based on common error patterns."""
+        suggestions = []
+        if "command not found" in stderr:
+            suggestions.append("which <command>")
+            suggestions.append("brew install <package>")
+        if "permission denied" in stderr.lower():
+            suggestions.append("chmod +x <file>")
+            suggestions.append("sudo <command>")
+        if "no such file" in stderr.lower():
+            suggestions.append("ls -la")
+            suggestions.append("pwd")
+        return suggestions
