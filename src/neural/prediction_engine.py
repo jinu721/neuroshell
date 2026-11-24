@@ -27,6 +27,34 @@ class NeuralPredictionEngine:
 
     # ── History loading ──────────────────────────────────────────────────────
 
+    @staticmethod
+    def _is_clean_command(cmd: str) -> bool:
+        """Return True only for short, clean, suggestion-worthy commands."""
+        # Skip empty or very long commands
+        if not cmd or len(cmd) > 60:
+            return False
+        # Skip commands with secrets/tokens (long hex/base64 strings)
+        import re
+        if re.search(r'[A-Za-z0-9+/]{30,}', cmd):
+            return False
+        # Skip commands with backslashes (multi-line continuations)
+        if '\\' in cmd:
+            return False
+        # Skip commands that look like URLs embedded
+        if 'http' in cmd and len(cmd) > 40:
+            return False
+        # Skip raw heredocs, pipes longer than 2 segments
+        if cmd.count('|') > 2:
+            return False
+        # Skip commands with <<, >>, 2>/dev/null style noise that are too long
+        if ('<<' in cmd or '>>' in cmd) and len(cmd) > 40:
+            return False
+        # Must start with a real command word (letters/dot/slash)
+        first = cmd.split()[0] if cmd.split() else ""
+        if not first or not (first[0].isalpha() or first[0] in (".", "/", "_")):
+            return False
+        return True
+
     def _load_shell_history(self):
         """Bootstrap suggestions from the user's existing shell history."""
         sources = [
@@ -44,7 +72,7 @@ class NeuralPredictionEngine:
                         if line.startswith(": ") and ";" in line:
                             line = line.split(";", 1)[1]
                         cmd = line.strip()
-                        if cmd and not cmd.startswith("#"):
+                        if cmd and not cmd.startswith("#") and self._is_clean_command(cmd):
                             cmds.append(cmd)
                 except Exception:
                     pass
@@ -162,3 +190,7 @@ class NeuralPredictionEngine:
         return (f"NeuralPredictionEngine("
                 f"known_commands={len(self._unigrams)}, "
                 f"history={len(self.command_history)})")
+
+    def command_frequency(self, command: str) -> int:
+        """Return how many times a specific command appears in history."""
+        return self._unigrams.get(command, 0)
