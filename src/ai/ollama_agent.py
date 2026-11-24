@@ -210,3 +210,12 @@ class OllamaAgent:
         pathlib.Path(path).write_text(
             json.dumps(self.messages, indent=2, ensure_ascii=False)
         )
+
+    def load_chat(self, path: str) -> bool:
+        """Restore conversation history from a JSON file. Returns False if missing."""
+        import json, pathlib
+        p = pathlib.Path(path)
+        if not p.exists():
+            return False
+        self.messages = json.loads(p.read_text())
+        return True
