@@ -187,3 +187,7 @@ class OllamaAgent:
     def get_model(self) -> str:
         """Return the currently configured Ollama model name."""
         return self.model
+
+    def message_count(self) -> int:
+        """Return number of messages in the current conversation history."""
+        return len(self.messages)
