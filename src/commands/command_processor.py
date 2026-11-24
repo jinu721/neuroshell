@@ -178,3 +178,9 @@ class CommandProcessor:
     def clear_history(self) -> None:
         """Wipe session command history."""
         self._session_history.clear()
+
+    def which(self, command: str) -> str:
+        """Return the full path to a command executable, or empty string."""
+        import shutil
+        path = shutil.which(command)
+        return path or ""
