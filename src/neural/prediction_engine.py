@@ -218,3 +218,15 @@ class NeuralPredictionEngine:
                 added += 1
         self._cache.clear()
         return added
+
+    def alias_map(self) -> dict:
+        """Return dict of common command abbreviations to their expansions."""
+        return {
+            "g":    "git",
+            "gs":   "git status",
+            "gc":   "git commit -m",
+            "gp":   "git push",
+            "gl":   "git pull",
+            "py":   "python3",
+            "ll":   "ls -la",
+        }
