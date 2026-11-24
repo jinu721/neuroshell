@@ -194,3 +194,13 @@ class NeuralPredictionEngine:
     def command_frequency(self, command: str) -> int:
         """Return how many times a specific command appears in history."""
         return self._unigrams.get(command, 0)
+
+    def prune_rare(self, min_count: int = 2) -> int:
+        """Remove commands seen fewer than min_count times from the model."""
+        before = len(self._unigrams)
+        rare = [cmd for cmd, cnt in self._unigrams.items() if cnt < min_count]
+        for cmd in rare:
+            del self._unigrams[cmd]
+            self._bigrams.pop(cmd, None)
+        self._cache.clear()
+        return before - len(self._unigrams)
