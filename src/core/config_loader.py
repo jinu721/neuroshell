@@ -245,3 +245,7 @@ class ConfigLoader:
     def set_value(self, key: str, value) -> None:
         """Set a config key in-memory (not persisted to disk)."""
         self._config[key] = value
+
+    def merge(self, overrides: dict) -> None:
+        """Overlay a dict of overrides onto the current config."""
+        self._config.update(overrides)
