@@ -170,3 +170,7 @@ class CommandProcessor:
             return {"success": False, "output": "", "error": f"timed out after {timeout}s"}
         except Exception as e:
             return {"success": False, "output": "", "error": str(e)}
+
+    def get_history(self, n: int = 20) -> list:
+        """Return the last n commands from session history."""
+        return self._session_history[-n:]
