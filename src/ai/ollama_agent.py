@@ -179,3 +179,11 @@ class OllamaAgent:
     def reset(self):
         """Clear conversation history."""
         self.messages = []
+
+    def set_model(self, model: str) -> None:
+        """Switch the Ollama model used for future requests."""
+        self.model = model
+
+    def get_model(self) -> str:
+        """Return the currently configured Ollama model name."""
+        return self.model
