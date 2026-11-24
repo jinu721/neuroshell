@@ -241,3 +241,7 @@ class ConfigLoader:
     def to_dict(self) -> dict:
         """Return a shallow copy of the current config as a plain dict."""
         return dict(self._config)
+
+    def set_value(self, key: str, value) -> None:
+        """Set a config key in-memory (not persisted to disk)."""
+        self._config[key] = value
