@@ -216,3 +216,10 @@ class ConfigLoader:
                 return default
             node = node[k]
         return node
+
+    def get_bool(self, key: str, default: bool = False) -> bool:
+        """Return config value coerced to bool (1/true/yes/on => True)."""
+        val = self._config.get(key, default)
+        if isinstance(val, bool):
+            return val
+        return str(val).lower() in ("1", "true", "yes", "on")
