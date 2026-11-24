@@ -199,3 +199,7 @@ class OllamaAgent:
         system = self.messages[:1]
         recent = self.messages[-(keep_last):]
         self.messages = system + recent
+
+    def inject_system_note(self, note: str) -> None:
+        """Append a system-level note to the conversation without user attribution."""
+        self.messages.append({"role": "system", "content": note})
