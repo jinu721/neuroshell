@@ -191,3 +191,11 @@ class OllamaAgent:
     def message_count(self) -> int:
         """Return number of messages in the current conversation history."""
         return len(self.messages)
+
+    def trim_history(self, keep_last: int = 20) -> None:
+        """Keep only the system prompt plus the last N messages to save context."""
+        if len(self.messages) <= keep_last + 1:
+            return
+        system = self.messages[:1]
+        recent = self.messages[-(keep_last):]
+        self.messages = system + recent
