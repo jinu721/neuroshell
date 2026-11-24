@@ -204,3 +204,7 @@ class NeuralPredictionEngine:
             self._bigrams.pop(cmd, None)
         self._cache.clear()
         return before - len(self._unigrams)
+
+    def has_command(self, command: str) -> bool:
+        """Return True if the command is known to the prediction model."""
+        return command in self._unigrams
