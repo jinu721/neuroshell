@@ -155,3 +155,18 @@ class CommandProcessor:
             if not r.get("success"):
                 break
         return results
+
+    def execute_with_timeout(self, command: str, timeout: int = 30) -> dict:
+        """Execute command with a custom timeout instead of the default."""
+        import subprocess, os
+        try:
+            result = subprocess.run(
+                command, shell=True, capture_output=True,
+                text=True, timeout=timeout, env=os.environ.copy(), cwd=os.getcwd()
+            )
+            return {"success": result.returncode == 0,
+                    "output": result.stdout, "error": result.stderr}
+        except subprocess.TimeoutExpired:
+            return {"success": False, "output": "", "error": f"timed out after {timeout}s"}
+        except Exception as e:
+            return {"success": False, "output": "", "error": str(e)}
