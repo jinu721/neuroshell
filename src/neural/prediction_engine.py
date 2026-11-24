@@ -208,3 +208,13 @@ class NeuralPredictionEngine:
     def has_command(self, command: str) -> bool:
         """Return True if the command is known to the prediction model."""
         return command in self._unigrams
+
+    def merge_history(self, other_cmds: list) -> int:
+        """Merge an external list of commands into the model, return count added."""
+        added = 0
+        for cmd in other_cmds:
+            if self._is_clean_command(cmd):
+                self._unigrams[cmd] += 1
+                added += 1
+        self._cache.clear()
+        return added
