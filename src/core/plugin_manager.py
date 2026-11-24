@@ -222,3 +222,14 @@ class PluginManager:
         if callable(func):
             return func(*args, **kwargs)
         return None
+
+    def get_metadata(self, plugin_name: str) -> dict:
+        """Return __version__ and __author__ from a loaded plugin module."""
+        plugin = self.plugins.get(plugin_name)
+        if plugin is None:
+            return {}
+        return {
+            "version": getattr(plugin, "__version__", "unknown"),
+            "author":  getattr(plugin, "__author__",  "unknown"),
+            "doc":     getattr(plugin, "__doc__",     ""),
+        }
