@@ -193,3 +193,10 @@ class PluginManager:
 # auto-patch 2793: 456
 
 # auto-patch 2796: 390
+
+    def unload(self, plugin_name: str) -> bool:
+        """Remove plugin from registry; returns True if it was loaded."""
+        if plugin_name in self.plugins:
+            del self.plugins[plugin_name]
+            return True
+        return False
