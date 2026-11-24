@@ -200,3 +200,7 @@ class PluginManager:
             del self.plugins[plugin_name]
             return True
         return False
+
+    def has(self, plugin_name: str) -> bool:
+        """Return True if the plugin is currently loaded."""
+        return plugin_name in self.plugins
