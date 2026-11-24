@@ -212,3 +212,13 @@ class PluginManager:
     def count(self) -> int:
         """Return the number of currently loaded plugins."""
         return len(self.plugins)
+
+    def call(self, plugin_name: str, func_name: str, *args, **kwargs):
+        """Invoke a named function in a loaded plugin; returns None if not found."""
+        plugin = self.plugins.get(plugin_name)
+        if plugin is None:
+            return None
+        func = getattr(plugin, func_name, None)
+        if callable(func):
+            return func(*args, **kwargs)
+        return None
