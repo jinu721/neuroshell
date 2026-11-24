@@ -174,3 +174,7 @@ class CommandProcessor:
     def get_history(self, n: int = 20) -> list:
         """Return the last n commands from session history."""
         return self._session_history[-n:]
+
+    def clear_history(self) -> None:
+        """Wipe session command history."""
+        self._session_history.clear()
