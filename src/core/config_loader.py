@@ -206,3 +206,13 @@ class ConfigLoader:
 # auto-patch 2773: 291
 
 # auto-patch 2797: 405
+
+    def get_nested(self, dotted_key: str, default=None):
+        """Read a nested value using dot notation, e.g. 'ui.theme.name'."""
+        keys = dotted_key.split(".")
+        node = self._config
+        for k in keys:
+            if not isinstance(node, dict) or k not in node:
+                return default
+            node = node[k]
+        return node
