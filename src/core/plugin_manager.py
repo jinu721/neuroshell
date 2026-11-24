@@ -208,3 +208,7 @@ class PluginManager:
     def list_loaded(self) -> list:
         """Return sorted list of all loaded plugin names."""
         return sorted(self.plugins.keys())
+
+    def count(self) -> int:
+        """Return the number of currently loaded plugins."""
+        return len(self.plugins)
