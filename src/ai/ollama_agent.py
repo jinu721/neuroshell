@@ -203,3 +203,10 @@ class OllamaAgent:
     def inject_system_note(self, note: str) -> None:
         """Append a system-level note to the conversation without user attribution."""
         self.messages.append({"role": "system", "content": note})
+
+    def export_chat(self, path: str) -> None:
+        """Save the full conversation history as a JSON file."""
+        import json, pathlib
+        pathlib.Path(path).write_text(
+            json.dumps(self.messages, indent=2, ensure_ascii=False)
+        )
