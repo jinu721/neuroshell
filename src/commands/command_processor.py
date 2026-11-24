@@ -184,3 +184,10 @@ class CommandProcessor:
         import shutil
         path = shutil.which(command)
         return path or ""
+
+    def is_dangerous(self, command: str) -> bool:
+        """Return True if the command contains a known destructive pattern."""
+        dangerous = ["rm -rf /", "rm -rf ~", "mkfs", ":(){:|:&};:",
+                     "dd if=/dev/zero", "chmod -R 777 /", "> /dev/sda"]
+        cmd_lower = command.lower()
+        return any(d in cmd_lower for d in dangerous)
