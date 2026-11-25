@@ -273,3 +273,7 @@ class ConfigLoader:
     def has(self, key: str) -> bool:
         """Return True if key exists in the loaded config."""
         return key in self._config
+
+    def keys(self) -> list:
+        """Return all top-level keys in the current config."""
+        return list(self._config.keys())
