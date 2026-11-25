@@ -288,3 +288,9 @@ class NeuralPredictionEngine:
     def clear_cache(self) -> None:
         """Manually flush the suggestion cache."""
         self._cache.clear()
+
+    def add_command(self, cmd: str, weight: int = 1) -> None:
+        """Manually add a command to the unigram model with given weight."""
+        if self._is_clean_command(cmd):
+            self._unigrams[cmd] += weight
+            self._cache.clear()
