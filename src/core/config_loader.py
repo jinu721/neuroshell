@@ -258,3 +258,9 @@ class ConfigLoader:
                 f"Set it in {self.config_path} or via NEUROSHELL_{key.upper()}."
             )
         return self._config[key]
+
+    def save(self) -> None:
+        """Write the in-memory config back to the JSON config file."""
+        import json
+        self.config_path.parent.mkdir(parents=True, exist_ok=True)
+        self.config_path.write_text(json.dumps(self._config, indent=2))
