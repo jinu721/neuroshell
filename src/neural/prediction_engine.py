@@ -270,3 +270,17 @@ class NeuralPredictionEngine:
             "bigrams":  {k: dict(v) for k, v in self._bigrams.items()},
         }
         pathlib.Path(path).write_text(json.dumps(data, indent=2))
+
+    def import_model(self, path: str) -> bool:
+        """Load previously exported unigram + bigram model from JSON file."""
+        import json, pathlib
+        from collections import Counter, defaultdict
+        p = pathlib.Path(path)
+        if not p.exists():
+            return False
+        data = json.loads(p.read_text())
+        self._unigrams = Counter(data.get("unigrams", {}))
+        self._bigrams  = defaultdict(Counter,
+                                     {k: Counter(v) for k, v in data.get("bigrams", {}).items()})
+        self._cache.clear()
+        return True
