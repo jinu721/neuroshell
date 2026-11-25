@@ -196,3 +196,18 @@ class CommandProcessor:
         """Capture current environment variables as a plain dict snapshot."""
         import os
         return dict(os.environ)
+
+    def execute_capture(self, command: str) -> tuple:
+        """Execute command and return (stdout, stderr, exit_code) tuple."""
+        import subprocess, os
+        try:
+            r = subprocess.run(
+                command, shell=True, capture_output=True,
+                text=True, timeout=self.DEFAULT_TIMEOUT,
+                env=os.environ.copy(), cwd=os.getcwd()
+            )
+            return r.stdout, r.stderr, r.returncode
+        except subprocess.TimeoutExpired:
+            return "", "timeout", 1
+        except Exception as e:
+            return "", str(e), 1
