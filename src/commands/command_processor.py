@@ -191,3 +191,8 @@ class CommandProcessor:
                      "dd if=/dev/zero", "chmod -R 777 /", "> /dev/sda"]
         cmd_lower = command.lower()
         return any(d in cmd_lower for d in dangerous)
+
+    def environment_snapshot(self) -> dict:
+        """Capture current environment variables as a plain dict snapshot."""
+        import os
+        return dict(os.environ)
