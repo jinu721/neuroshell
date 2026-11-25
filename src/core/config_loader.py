@@ -277,3 +277,10 @@ class ConfigLoader:
     def keys(self) -> list:
         """Return all top-level keys in the current config."""
         return list(self._config.keys())
+
+    def delete(self, key: str) -> bool:
+        """Remove a key from in-memory config; returns False if not found."""
+        if key in self._config:
+            del self._config[key]
+            return True
+        return False
