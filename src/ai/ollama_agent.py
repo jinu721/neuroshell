@@ -219,3 +219,12 @@ class OllamaAgent:
             return False
         self.messages = json.loads(p.read_text())
         return True
+
+    def available_models(self) -> list:
+        """Query Ollama for the list of locally pulled models."""
+        try:
+            r = requests.get(f"{OLLAMA_URL}/api/tags", timeout=5)
+            r.raise_for_status()
+            return [m["name"] for m in r.json().get("models", [])]
+        except Exception:
+            return []
