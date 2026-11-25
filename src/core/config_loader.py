@@ -288,3 +288,7 @@ class ConfigLoader:
     def __len__(self) -> int:
         """Return the number of keys in the current config."""
         return len(self._config)
+
+    def __contains__(self, key: str) -> bool:
+        """Support 'key in config_loader' membership syntax."""
+        return key in self._config
