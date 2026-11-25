@@ -241,3 +241,8 @@ class PluginManager:
         except Exception as exc:
             print(f"[plugin] Failed to load '{plugin_name}': {exc}")
             return False
+
+    def reload(self, plugin_name: str) -> bool:
+        """Unload then re-load a plugin to pick up file changes."""
+        self.unload(plugin_name)
+        return self.load(plugin_name)
