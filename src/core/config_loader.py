@@ -284,3 +284,7 @@ class ConfigLoader:
             del self._config[key]
             return True
         return False
+
+    def __len__(self) -> int:
+        """Return the number of keys in the current config."""
+        return len(self._config)
