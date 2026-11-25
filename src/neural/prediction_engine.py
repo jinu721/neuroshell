@@ -261,3 +261,12 @@ class NeuralPredictionEngine:
         for cmd in list(self._unigrams):
             self._unigrams[cmd] = max(1, int(self._unigrams[cmd] * factor))
         self._cache.clear()
+
+    def export_model(self, path: str) -> None:
+        """Serialize unigram + bigram models to a JSON file for persistence."""
+        import json, pathlib
+        data = {
+            "unigrams": dict(self._unigrams),
+            "bigrams":  {k: dict(v) for k, v in self._bigrams.items()},
+        }
+        pathlib.Path(path).write_text(json.dumps(data, indent=2))
