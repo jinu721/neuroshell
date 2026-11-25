@@ -294,3 +294,12 @@ class NeuralPredictionEngine:
         if self._is_clean_command(cmd):
             self._unigrams[cmd] += weight
             self._cache.clear()
+
+    def forget_command(self, cmd: str) -> bool:
+        """Remove a specific command from the prediction model entirely."""
+        if cmd in self._unigrams:
+            del self._unigrams[cmd]
+            self._bigrams.pop(cmd, None)
+            self._cache.clear()
+            return True
+        return False
