@@ -264,3 +264,8 @@ class ConfigLoader:
         import json
         self.config_path.parent.mkdir(parents=True, exist_ok=True)
         self.config_path.write_text(json.dumps(self._config, indent=2))
+
+    def reload(self) -> dict:
+        """Re-read the config file from disk, discarding in-memory changes."""
+        self._config = {}
+        return self.load()
