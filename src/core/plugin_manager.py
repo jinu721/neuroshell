@@ -250,3 +250,7 @@ class PluginManager:
     def __iter__(self):
         """Iterate over (name, module) pairs of loaded plugins."""
         return iter(self.plugins.items())
+
+    def __repr__(self) -> str:
+        return (f"PluginManager(dir={self.plugin_dir!r}, "
+                f"loaded={list(self.plugins.keys())})")
