@@ -242,3 +242,7 @@ class CommandProcessor:
     def sanitize(self, command: str) -> str:
         """Strip whitespace and trailing semicolons from raw command input."""
         return command.strip().rstrip(";")
+
+    def has_alias(self, name: str) -> bool:
+        """Return True if an alias with this name is registered."""
+        return name in self._aliases
