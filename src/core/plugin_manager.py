@@ -246,3 +246,7 @@ class PluginManager:
         """Unload then re-load a plugin to pick up file changes."""
         self.unload(plugin_name)
         return self.load(plugin_name)
+
+    def __iter__(self):
+        """Iterate over (name, module) pairs of loaded plugins."""
+        return iter(self.plugins.items())
