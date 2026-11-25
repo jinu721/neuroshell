@@ -258,3 +258,9 @@ class PluginManager:
     def load_many(self, plugin_names: list) -> dict:
         """Load multiple plugins by name; returns {name: success} mapping."""
         return {name: self.safe_load(name) for name in plugin_names}
+
+    def unload_all(self) -> int:
+        """Unload all currently loaded plugins; returns how many were removed."""
+        count = len(self.plugins)
+        self.plugins.clear()
+        return count
