@@ -244,3 +244,10 @@ class NeuralPredictionEngine:
             suggestions.append("ls -la")
             suggestions.append("pwd")
         return suggestions
+
+    def ngram_suggest(self, context: list, n: int = 3) -> list:
+        """Use an n-gram chain to suggest what usually follows a command sequence."""
+        if not context:
+            return []
+        last = context[-1]
+        return [cmd for cmd, _ in self._bigrams.get(last, {}).most_common(n)]
