@@ -243,3 +243,10 @@ class OllamaAgent:
             if msg.get("role") == "user":
                 return msg.get("content", "")
         return ""
+
+    def get_last_assistant_message(self) -> str:
+        """Return the most recent assistant response text, or empty string."""
+        for msg in reversed(self.messages):
+            if msg.get("role") == "assistant":
+                return msg.get("content", "")
+        return ""
