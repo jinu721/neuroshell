@@ -255,3 +255,9 @@ class NeuralPredictionEngine:
     def vocabulary_size(self) -> int:
         """Return the total number of distinct commands the model knows."""
         return len(self._unigrams)
+
+    def decay_counts(self, factor: float = 0.9) -> None:
+        """Multiply all unigram counts by factor to age out old commands."""
+        for cmd in list(self._unigrams):
+            self._unigrams[cmd] = max(1, int(self._unigrams[cmd] * factor))
+        self._cache.clear()
