@@ -251,3 +251,7 @@ class NeuralPredictionEngine:
             return []
         last = context[-1]
         return [cmd for cmd, _ in self._bigrams.get(last, {}).most_common(n)]
+
+    def vocabulary_size(self) -> int:
+        """Return the total number of distinct commands the model knows."""
+        return len(self._unigrams)
