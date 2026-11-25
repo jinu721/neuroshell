@@ -254,3 +254,7 @@ class PluginManager:
     def __repr__(self) -> str:
         return (f"PluginManager(dir={self.plugin_dir!r}, "
                 f"loaded={list(self.plugins.keys())})")
+
+    def load_many(self, plugin_names: list) -> dict:
+        """Load multiple plugins by name; returns {name: success} mapping."""
+        return {name: self.safe_load(name) for name in plugin_names}
