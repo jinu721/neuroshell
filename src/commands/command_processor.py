@@ -238,3 +238,7 @@ class CommandProcessor:
         result = self.execute(command)
         elapsed = _time.perf_counter() - t0
         return result, elapsed
+
+    def sanitize(self, command: str) -> str:
+        """Strip whitespace and trailing semicolons from raw command input."""
+        return command.strip().rstrip(";")
