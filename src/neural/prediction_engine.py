@@ -284,3 +284,7 @@ class NeuralPredictionEngine:
                                      {k: Counter(v) for k, v in data.get("bigrams", {}).items()})
         self._cache.clear()
         return True
+
+    def clear_cache(self) -> None:
+        """Manually flush the suggestion cache."""
+        self._cache.clear()
