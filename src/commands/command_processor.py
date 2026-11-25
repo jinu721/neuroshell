@@ -230,3 +230,11 @@ class CommandProcessor:
         """Inject an environment variable into future subprocess executions."""
         import os
         os.environ[key] = value
+
+    def measure_time(self, command: str) -> tuple:
+        """Execute command and return (result_dict, elapsed_seconds)."""
+        import time as _time
+        t0 = _time.perf_counter()
+        result = self.execute(command)
+        elapsed = _time.perf_counter() - t0
+        return result, elapsed
