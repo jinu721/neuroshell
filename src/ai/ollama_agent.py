@@ -228,3 +228,11 @@ class OllamaAgent:
             return [m["name"] for m in r.json().get("models", [])]
         except Exception:
             return []
+
+    def is_ollama_running(self) -> bool:
+        """Return True if the Ollama server is reachable on localhost."""
+        try:
+            requests.get(f"{OLLAMA_URL}/api/tags", timeout=3)
+            return True
+        except Exception:
+            return False
