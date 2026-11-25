@@ -225,3 +225,8 @@ class CommandProcessor:
                     "output": r.stdout, "error": r.stderr}
         except Exception as e:
             return {"success": False, "output": "", "error": str(e)}
+
+    def inject_env(self, key: str, value: str) -> None:
+        """Inject an environment variable into future subprocess executions."""
+        import os
+        os.environ[key] = value
