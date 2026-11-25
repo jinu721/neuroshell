@@ -269,3 +269,7 @@ class ConfigLoader:
         """Re-read the config file from disk, discarding in-memory changes."""
         self._config = {}
         return self.load()
+
+    def has(self, key: str) -> bool:
+        """Return True if key exists in the loaded config."""
+        return key in self._config
