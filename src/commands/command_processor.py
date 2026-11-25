@@ -211,3 +211,17 @@ class CommandProcessor:
             return "", "timeout", 1
         except Exception as e:
             return "", str(e), 1
+
+    def run_in_dir(self, command: str, cwd: str) -> dict:
+        """Execute a command in a specific directory without changing os.getcwd()."""
+        import subprocess, os
+        try:
+            r = subprocess.run(
+                command, shell=True, capture_output=True,
+                text=True, timeout=self.DEFAULT_TIMEOUT,
+                env=os.environ.copy(), cwd=cwd
+            )
+            return {"success": r.returncode == 0,
+                    "output": r.stdout, "error": r.stderr}
+        except Exception as e:
+            return {"success": False, "output": "", "error": str(e)}
