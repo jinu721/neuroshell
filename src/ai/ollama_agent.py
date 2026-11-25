@@ -236,3 +236,10 @@ class OllamaAgent:
             return True
         except Exception:
             return False
+
+    def get_last_user_message(self) -> str:
+        """Return the most recent user message text, or empty string."""
+        for msg in reversed(self.messages):
+            if msg.get("role") == "user":
+                return msg.get("content", "")
+        return ""
