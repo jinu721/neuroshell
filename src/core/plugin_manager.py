@@ -233,3 +233,11 @@ class PluginManager:
             "author":  getattr(plugin, "__author__",  "unknown"),
             "doc":     getattr(plugin, "__doc__",     ""),
         }
+
+    def safe_load(self, plugin_name: str) -> bool:
+        """Load plugin catching import errors and printing a warning."""
+        try:
+            return self.load(plugin_name)
+        except Exception as exc:
+            print(f"[plugin] Failed to load '{plugin_name}': {exc}")
+            return False
