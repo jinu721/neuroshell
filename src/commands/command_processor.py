@@ -246,3 +246,8 @@ class CommandProcessor:
     def has_alias(self, name: str) -> bool:
         """Return True if an alias with this name is registered."""
         return name in self._aliases
+
+    def set_timeout(self, seconds: int) -> None:
+        """Update the default execution timeout for all future commands."""
+        if seconds > 0:
+            self.DEFAULT_TIMEOUT = seconds
