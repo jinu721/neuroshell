@@ -263,3 +263,7 @@ class OllamaAgent:
     def add_assistant_message(self, text: str) -> None:
         """Inject an assistant message directly into the conversation history."""
         self.messages.append({"role": "assistant", "content": text})
+
+    def set_system_prompt(self, prompt: str) -> None:
+        """Replace the system prompt. Clears all previous conversation history."""
+        self.messages = [{"role": "system", "content": prompt}]
