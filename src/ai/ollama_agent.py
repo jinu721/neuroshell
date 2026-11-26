@@ -255,3 +255,7 @@ class OllamaAgent:
         """Estimate total token count in conversation history (4 chars per token)."""
         total_chars = sum(len(m.get("content", "")) for m in self.messages)
         return total_chars // 4
+
+    def add_user_message(self, text: str) -> None:
+        """Append a user message directly to history without sending it."""
+        self.messages.append({"role": "user", "content": text})
