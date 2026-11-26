@@ -267,3 +267,9 @@ class OllamaAgent:
     def set_system_prompt(self, prompt: str) -> None:
         """Replace the system prompt. Clears all previous conversation history."""
         self.messages = [{"role": "system", "content": prompt}]
+
+    def get_system_prompt(self) -> str:
+        """Return the current system prompt text."""
+        if self.messages and self.messages[0].get("role") == "system":
+            return self.messages[0].get("content", "")
+        return ""
