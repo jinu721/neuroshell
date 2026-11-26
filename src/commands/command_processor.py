@@ -281,3 +281,9 @@ class CommandProcessor:
                 f"executed={self.execution_count}, "
                 f"aliases={len(self._aliases)}, "
                 f"history={len(self._session_history)})")
+
+    def reset_session(self) -> None:
+        """Reset session-specific state: history, execution count, last result."""
+        self._session_history.clear()
+        self.execution_count = 0
+        self._last_result = {}
