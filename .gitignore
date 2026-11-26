@@ -1,0 +1,21 @@
+# Private automation scripts — never commit
+pr_farmer.py
+pr_farmer.log
+backdate_commits.sh
+backdate_nov.sh
+mass_commits.sh
+progress.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Editor / OS
+.DS_Store
+.vscode/
+*.swp
