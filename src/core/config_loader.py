@@ -275,3 +275,9 @@ def require(self, key: str):
             f"Set it in {self.config_path} or via NEUROSHELL_{key.upper()}."
         )
     return self._config[key]
+
+
+def save(self) -> None:
+    """Write the current in-memory config back to the JSON config file."""
+    import json
+    self.config_path.write_text(json.dumps(self._config, indent=2))
