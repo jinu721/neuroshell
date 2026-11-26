@@ -259,3 +259,7 @@ class OllamaAgent:
     def add_user_message(self, text: str) -> None:
         """Append a user message directly to history without sending it."""
         self.messages.append({"role": "user", "content": text})
+
+    def add_assistant_message(self, text: str) -> None:
+        """Inject an assistant message directly into the conversation history."""
+        self.messages.append({"role": "assistant", "content": text})
