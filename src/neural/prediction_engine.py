@@ -303,3 +303,10 @@ class NeuralPredictionEngine:
             self._cache.clear()
             return True
         return False
+
+    def path_completions(self, partial_path: str) -> list:
+        """Return filesystem paths that start with partial_path."""
+        import glob, os
+        expanded = os.path.expanduser(partial_path)
+        matches = glob.glob(expanded + "*")
+        return sorted(matches[:10])
