@@ -300,3 +300,11 @@ def get_bool(self, key: str, default: bool = False) -> bool:
     if isinstance(val, bool):
         return val
     return str(val).lower() in ("1", "true", "yes", "on")
+
+
+def get_int(self, key: str, default: int = 0) -> int:
+    """Return config value cast to int, using default on parse failure."""
+    try:
+        return int(self._config.get(key, default))
+    except (TypeError, ValueError):
+        return default
