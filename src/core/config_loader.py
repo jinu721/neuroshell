@@ -292,3 +292,11 @@ def save(self) -> None:
 def merge(self, overrides: dict) -> None:
     """Merge overrides dict into current config (top-level keys only)."""
     self._config.update(overrides)
+
+
+def get_bool(self, key: str, default: bool = False) -> bool:
+    """Return config value coerced to bool, treating '1'/'true'/'yes' as True."""
+    val = self._config.get(key, default)
+    if isinstance(val, bool):
+        return val
+    return str(val).lower() in ("1", "true", "yes", "on")
