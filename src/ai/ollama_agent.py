@@ -273,3 +273,16 @@ class OllamaAgent:
         if self.messages and self.messages[0].get("role") == "system":
             return self.messages[0].get("content", "")
         return ""
+
+    def summarize_commands_run(self) -> list:
+        """Return list of all shell commands that were run via RUN: in this session."""
+        commands = []
+        for msg in self.messages:
+            if msg.get("role") == "assistant":
+                for line in msg.get("content", "").splitlines():
+                    stripped = line.strip()
+                    if stripped.startswith("RUN:"):
+                        cmd = stripped[4:].strip()
+                        if cmd:
+                            commands.append(cmd)
+        return commands
