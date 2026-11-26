@@ -286,3 +286,7 @@ class PluginManager:
     def __len__(self) -> int:
         """Return number of currently loaded plugins."""
         return len(self.plugins)
+
+    def __contains__(self, plugin_name: str) -> bool:
+        """Support 'name in plugin_manager' membership test."""
+        return plugin_name in self.plugins
