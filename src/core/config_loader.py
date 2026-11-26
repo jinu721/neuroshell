@@ -318,3 +318,9 @@ class ConfigLoader:
     def __repr__(self) -> str:
         return (f"ConfigLoader(path={self.config_path!r}, "
                 f"keys={list(self._config.keys())})")
+
+    def defaults(self, mapping: dict) -> None:
+        """Apply mapping as defaults: only sets keys not already present in config."""
+        for k, v in mapping.items():
+            if k not in self._config:
+                self._config[k] = v
