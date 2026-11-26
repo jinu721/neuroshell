@@ -282,3 +282,7 @@ class PluginManager:
     def exists_on_disk(self, plugin_name: str) -> bool:
         """Return True if the plugin file exists on disk (loaded or not)."""
         return (self.plugin_dir / f"{plugin_name}.py").exists()
+
+    def __len__(self) -> int:
+        """Return number of currently loaded plugins."""
+        return len(self.plugins)
