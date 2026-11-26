@@ -310,3 +310,14 @@ class NeuralPredictionEngine:
         expanded = os.path.expanduser(partial_path)
         matches = glob.glob(expanded + "*")
         return sorted(matches[:10])
+
+    def git_aware_suggest(self, partial: str) -> list:
+        """Add git subcommands to suggestions when partial starts with 'git'."""
+        if not partial.lower().startswith("git"):
+            return []
+        git_subs = [
+            "git status", "git add .", "git commit -m", "git push",
+            "git pull", "git log --oneline", "git diff", "git stash",
+            "git checkout -b", "git branch -a", "git rebase -i HEAD~",
+        ]
+        return [s for s in git_subs if s.startswith(partial)]
