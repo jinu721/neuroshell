@@ -275,3 +275,9 @@ class CommandProcessor:
             "aliases":   self.alias_count(),
             "history":   len(self._session_history),
         }
+
+    def __repr__(self) -> str:
+        return (f"CommandProcessor("
+                f"executed={self.execution_count}, "
+                f"aliases={len(self._aliases)}, "
+                f"history={len(self._session_history)})")
