@@ -223,3 +223,14 @@ def get_nested(self, dotted_key: str, default=None):
             return default
         node = node[k]
     return node
+
+
+def get_nested(self, dotted_key: str, default=None):
+    """Read a nested config value using dot notation, e.g. 'ui.theme'."""
+    keys = dotted_key.split(".")
+    node = self._config
+    for k in keys:
+        if not isinstance(node, dict) or k not in node:
+            return default
+        node = node[k]
+    return node
