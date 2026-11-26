@@ -437,3 +437,16 @@ def handle_alias(self, args: str) -> bool:
         self._user_aliases[name.strip()] = cmd.strip()
         return True
     return False
+
+
+            import io as _io
+
+            def buffered_print(self, *lines: str) -> None:
+                """Collect lines into a buffer and flush to stdout at once."""
+                buf = _io.StringIO()
+                for line in lines:
+                    buf.write(line + "
+")
+                import sys
+                sys.stdout.write(buf.getvalue())
+                sys.stdout.flush()
