@@ -287,3 +287,8 @@ def save(self) -> None:
     """Write the current in-memory config back to the JSON config file."""
     import json
     self.config_path.write_text(json.dumps(self._config, indent=2))
+
+
+def merge(self, overrides: dict) -> None:
+    """Merge overrides dict into current config (top-level keys only)."""
+    self._config.update(overrides)
