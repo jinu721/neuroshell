@@ -213,3 +213,8 @@ def reload(self, plugin_name: str) -> bool:
     """Unload and re-load a plugin to pick up file changes."""
     self.unload(plugin_name)
     return self.load(plugin_name)
+
+
+def list_loaded(self) -> list:
+    """Return a sorted list of all currently loaded plugin names."""
+    return sorted(self.plugins.keys())
