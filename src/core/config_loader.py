@@ -235,3 +235,8 @@ def reload(self) -> dict:
     """Re-read the config file from disk and re-apply env overrides."""
     self._config = {}
     return self.load()
+
+
+def set(self, key: str, value) -> None:
+    """Set a top-level config key in-memory (not persisted to file)."""
+    self._config[key] = value
