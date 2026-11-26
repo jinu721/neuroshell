@@ -223,3 +223,9 @@ def get_nested(self, dotted_key: str, default=None):
             return default
         node = node[k]
     return node
+
+
+def reload(self) -> dict:
+    """Re-read the config file from disk and re-apply env overrides."""
+    self._config = {}
+    return self.load()
