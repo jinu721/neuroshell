@@ -199,3 +199,11 @@ _DEFAULT_ENCODING = 'utf-8'
 
 # patch 10: min confidence to show suggestion
 _MIN_CONFIDENCE = 0.4
+
+
+def unload(self, plugin_name: str) -> bool:
+    """Remove a loaded plugin from the registry; returns True if found."""
+    if plugin_name in self.plugins:
+        del self.plugins[plugin_name]
+        return True
+    return False
