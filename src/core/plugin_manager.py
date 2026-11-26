@@ -218,3 +218,8 @@ def reload(self, plugin_name: str) -> bool:
 def list_loaded(self) -> list:
     """Return a sorted list of all currently loaded plugin names."""
     return sorted(self.plugins.keys())
+
+
+def has(self, plugin_name: str) -> bool:
+    """Return True if the plugin is currently loaded."""
+    return plugin_name in self.plugins
