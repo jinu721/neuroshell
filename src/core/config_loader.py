@@ -281,3 +281,9 @@ def save(self) -> None:
     """Write the current in-memory config back to the JSON config file."""
     import json
     self.config_path.write_text(json.dumps(self._config, indent=2))
+
+
+def save(self) -> None:
+    """Write the current in-memory config back to the JSON config file."""
+    import json
+    self.config_path.write_text(json.dumps(self._config, indent=2))
