@@ -345,3 +345,9 @@ class NeuralPredictionEngine:
         return sorted(candidates,
                       key=lambda c: recency_scores.get(c, 0) + self._unigrams.get(c, 0),
                       reverse=True)
+
+    def suggest_corrections(self, bad_cmd: str) -> list:
+        """Suggest close matches from known commands using character distance."""
+        from difflib import get_close_matches
+        all_cmds = list(self._unigrams.keys())
+        return get_close_matches(bad_cmd, all_cmds, n=5, cutoff=0.6)
