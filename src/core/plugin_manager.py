@@ -268,3 +268,9 @@ class PluginManager:
     def names(self) -> list:
         """Return list of currently loaded plugin names (alias for list_loaded)."""
         return list(self.plugins.keys())
+
+    def set_plugin_dir(self, path: str) -> None:
+        """Change the plugin directory and clear the loaded plugins registry."""
+        from pathlib import Path
+        self.plugin_dir = Path(path)
+        self.plugins.clear()
