@@ -250,3 +250,8 @@ def set(self, key: str, value) -> None:
 def to_dict(self) -> dict:
     """Return a shallow copy of the current config dictionary."""
     return dict(self._config)
+
+
+def to_dict(self) -> dict:
+    """Return a shallow copy of the current config dictionary."""
+    return dict(self._config)
