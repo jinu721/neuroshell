@@ -324,3 +324,19 @@ class ConfigLoader:
         for k, v in mapping.items():
             if k not in self._config:
                 self._config[k] = v
+
+    def schema_validate(self, schema: dict) -> list:
+        """
+        Light schema check: schema = {key: type_or_tuple_of_types}.
+        Returns list of error strings (empty = all good).
+        """
+        errors = []
+        for key, expected_type in schema.items():
+            if key not in self._config:
+                errors.append(f"missing required key: {key!r}")
+            elif not isinstance(self._config[key], expected_type):
+                errors.append(
+                    f"{key!r}: expected {expected_type}, "
+                    f"got {type(self._config[key]).__name__}"
+                )
+        return errors
