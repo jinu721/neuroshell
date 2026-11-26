@@ -207,3 +207,9 @@ def unload(self, plugin_name: str) -> bool:
         del self.plugins[plugin_name]
         return True
     return False
+
+
+def reload(self, plugin_name: str) -> bool:
+    """Unload and re-load a plugin to pick up file changes."""
+    self.unload(plugin_name)
+    return self.load(plugin_name)
