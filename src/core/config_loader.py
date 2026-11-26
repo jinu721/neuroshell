@@ -265,3 +265,13 @@ def require(self, key: str):
             f"Set it in {self.config_path} or via NEUROSHELL_{key.upper()}."
         )
     return self._config[key]
+
+
+def require(self, key: str):
+    """Return config value for key, raising KeyError if absent."""
+    if key not in self._config:
+        raise KeyError(
+            f"Required config key '{key}' is missing. "
+            f"Set it in {self.config_path} or via NEUROSHELL_{key.upper()}."
+        )
+    return self._config[key]
