@@ -264,3 +264,7 @@ class PluginManager:
         count = len(self.plugins)
         self.plugins.clear()
         return count
+
+    def names(self) -> list:
+        """Return list of currently loaded plugin names (alias for list_loaded)."""
+        return list(self.plugins.keys())
