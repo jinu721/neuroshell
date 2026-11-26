@@ -286,3 +286,8 @@ class OllamaAgent:
                         if cmd:
                             commands.append(cmd)
         return commands
+
+    def __repr__(self) -> str:
+        return (f"OllamaAgent(model={self.model!r}, "
+                f"messages={len(self.messages)}, "
+                f"context_keys={list(self.context_info.keys())})")
