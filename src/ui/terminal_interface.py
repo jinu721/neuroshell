@@ -414,3 +414,11 @@ def set_theme(self, theme: str) -> bool:
         return False
     self._active_theme = theme
     return True
+
+
+def safe_input(self, prompt: str = "") -> Optional[str]:
+    """Read a line of input, returning None on EOF or interrupt."""
+    try:
+        return input(prompt)
+    except (EOFError, KeyboardInterrupt):
+        return None
