@@ -296,3 +296,7 @@ class ConfigLoader:
     def items(self):
         """Return (key, value) pairs for the current config like dict.items()."""
         return self._config.items()
+
+    def values(self):
+        """Return all config values like dict.values()."""
+        return self._config.values()
