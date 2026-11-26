@@ -292,3 +292,7 @@ class ConfigLoader:
     def __contains__(self, key: str) -> bool:
         """Support 'key in config_loader' membership syntax."""
         return key in self._config
+
+    def items(self):
+        """Return (key, value) pairs for the current config like dict.items()."""
+        return self._config.items()
