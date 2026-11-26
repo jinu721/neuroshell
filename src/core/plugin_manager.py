@@ -278,3 +278,7 @@ class PluginManager:
     def plugin_path(self, plugin_name: str) -> str:
         """Return the expected file path for a plugin by name."""
         return str(self.plugin_dir / f"{plugin_name}.py")
+
+    def exists_on_disk(self, plugin_name: str) -> bool:
+        """Return True if the plugin file exists on disk (loaded or not)."""
+        return (self.plugin_dir / f"{plugin_name}.py").exists()
