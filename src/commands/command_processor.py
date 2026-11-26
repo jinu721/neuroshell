@@ -255,3 +255,7 @@ class CommandProcessor:
     def alias_count(self) -> int:
         """Return the number of registered aliases."""
         return len(self._aliases)
+
+    def list_aliases(self) -> dict:
+        """Return a copy of the current alias registry."""
+        return dict(self._aliases)
