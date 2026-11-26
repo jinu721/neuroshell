@@ -422,3 +422,18 @@ def safe_input(self, prompt: str = "") -> Optional[str]:
         return input(prompt)
     except (EOFError, KeyboardInterrupt):
         return None
+
+
+_user_aliases: dict = {}
+
+def handle_alias(self, args: str) -> bool:
+    """Handle 'alias name=command' and 'unalias name' built-ins."""
+    if args.startswith("unalias "):
+        name = args[8:].strip()
+        self._user_aliases.pop(name, None)
+        return True
+    if "=" in args:
+        name, _, cmd = args.partition("=")
+        self._user_aliases[name.strip()] = cmd.strip()
+        return True
+    return False
