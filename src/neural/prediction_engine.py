@@ -321,3 +321,8 @@ class NeuralPredictionEngine:
             "git checkout -b", "git branch -a", "git rebase -i HEAD~",
         ]
         return [s for s in git_subs if s.startswith(partial)]
+
+    def normalize_command(self, cmd: str) -> str:
+        """Collapse multiple spaces and strip shell decorators for clean indexing."""
+        import re
+        return re.sub(r'\s+', ' ', cmd.strip())
