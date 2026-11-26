@@ -245,3 +245,8 @@ def set(self, key: str, value) -> None:
 def set(self, key: str, value) -> None:
     """Set a top-level config key in-memory (not persisted to file)."""
     self._config[key] = value
+
+
+def to_dict(self) -> dict:
+    """Return a shallow copy of the current config dictionary."""
+    return dict(self._config)
