@@ -255,3 +255,13 @@ def to_dict(self) -> dict:
 def to_dict(self) -> dict:
     """Return a shallow copy of the current config dictionary."""
     return dict(self._config)
+
+
+def require(self, key: str):
+    """Return config value for key, raising KeyError if absent."""
+    if key not in self._config:
+        raise KeyError(
+            f"Required config key '{key}' is missing. "
+            f"Set it in {self.config_path} or via NEUROSHELL_{key.upper()}."
+        )
+    return self._config[key]
