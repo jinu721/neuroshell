@@ -250,3 +250,8 @@ class OllamaAgent:
             if msg.get("role") == "assistant":
                 return msg.get("content", "")
         return ""
+
+    def conversation_tokens_estimate(self) -> int:
+        """Estimate total token count in conversation history (4 chars per token)."""
+        total_chars = sum(len(m.get("content", "")) for m in self.messages)
+        return total_chars // 4
