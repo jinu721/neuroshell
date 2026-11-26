@@ -259,3 +259,10 @@ class CommandProcessor:
     def list_aliases(self) -> dict:
         """Return a copy of the current alias registry."""
         return dict(self._aliases)
+
+    def remove_alias(self, name: str) -> bool:
+        """Remove an alias by name; returns False if it doesn't exist."""
+        if name in self._aliases:
+            del self._aliases[name]
+            return True
+        return False
