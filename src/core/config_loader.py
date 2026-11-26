@@ -229,3 +229,9 @@ def reload(self) -> dict:
     """Re-read the config file from disk and re-apply env overrides."""
     self._config = {}
     return self.load()
+
+
+def reload(self) -> dict:
+    """Re-read the config file from disk and re-apply env overrides."""
+    self._config = {}
+    return self.load()
