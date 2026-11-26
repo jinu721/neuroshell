@@ -326,3 +326,12 @@ class NeuralPredictionEngine:
         """Collapse multiple spaces and strip shell decorators for clean indexing."""
         import re
         return re.sub(r'\s+', ' ', cmd.strip())
+
+    def session_summary(self) -> dict:
+        """Return a snapshot summary of the current session's prediction state."""
+        return {
+            "vocabulary":   self.vocabulary_size(),
+            "history_len":  len(self.command_history),
+            "success_rate": round(self.success_rate, 3),
+            "cache_size":   len(self._cache),
+        }
