@@ -251,3 +251,7 @@ class CommandProcessor:
         """Update the default execution timeout for all future commands."""
         if seconds > 0:
             self.DEFAULT_TIMEOUT = seconds
+
+    def alias_count(self) -> int:
+        """Return the number of registered aliases."""
+        return len(self._aliases)
