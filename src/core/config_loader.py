@@ -300,3 +300,17 @@ class ConfigLoader:
     def values(self):
         """Return all config values like dict.values()."""
         return self._config.values()
+
+    def update_from_env(self, mapping: dict) -> int:
+        """
+        Apply env-var style key mapping onto config.
+        mapping = {"ENV_KEY": "config_key"}
+        Returns count of keys applied.
+        """
+        import os
+        applied = 0
+        for env_key, cfg_key in mapping.items():
+            if env_key in os.environ:
+                self._config[cfg_key] = os.environ[env_key]
+                applied += 1
+        return applied
