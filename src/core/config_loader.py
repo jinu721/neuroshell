@@ -240,3 +240,8 @@ def reload(self) -> dict:
 def set(self, key: str, value) -> None:
     """Set a top-level config key in-memory (not persisted to file)."""
     self._config[key] = value
+
+
+def set(self, key: str, value) -> None:
+    """Set a top-level config key in-memory (not persisted to file)."""
+    self._config[key] = value
