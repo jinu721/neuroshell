@@ -274,3 +274,7 @@ class PluginManager:
         from pathlib import Path
         self.plugin_dir = Path(path)
         self.plugins.clear()
+
+    def plugin_path(self, plugin_name: str) -> str:
+        """Return the expected file path for a plugin by name."""
+        return str(self.plugin_dir / f"{plugin_name}.py")
