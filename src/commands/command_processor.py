@@ -266,3 +266,12 @@ class CommandProcessor:
             del self._aliases[name]
             return True
         return False
+
+    def execution_stats(self) -> dict:
+        """Return execution statistics for this session."""
+        return {
+            "total":     self.execution_count,
+            "last_code": self.last_exit_code(),
+            "aliases":   self.alias_count(),
+            "history":   len(self._session_history),
+        }
