@@ -335,3 +335,13 @@ class NeuralPredictionEngine:
             "success_rate": round(self.success_rate, 3),
             "cache_size":   len(self._cache),
         }
+
+    def rank_by_recency(self, candidates: list, recency_weight: float = 2.0) -> list:
+        """Re-rank candidates boosting commands seen recently in history."""
+        recent = [e["command"] for e in self.command_history[-30:]]
+        recency_scores = {}
+        for i, cmd in enumerate(recent):
+            recency_scores[cmd] = recency_scores.get(cmd, 0) + (i + 1) * recency_weight
+        return sorted(candidates,
+                      key=lambda c: recency_scores.get(c, 0) + self._unigrams.get(c, 0),
+                      reverse=True)
