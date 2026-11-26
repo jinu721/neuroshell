@@ -314,3 +314,7 @@ class ConfigLoader:
                 self._config[cfg_key] = os.environ[env_key]
                 applied += 1
         return applied
+
+    def __repr__(self) -> str:
+        return (f"ConfigLoader(path={self.config_path!r}, "
+                f"keys={list(self._config.keys())})")
