@@ -450,3 +450,16 @@ def handle_alias(self, args: str) -> bool:
                 import sys
                 sys.stdout.write(buf.getvalue())
                 sys.stdout.flush()
+
+
+            import io as _io
+
+            def buffered_print(self, *lines: str) -> None:
+                """Collect lines into a buffer and flush to stdout at once."""
+                buf = _io.StringIO()
+                for line in lines:
+                    buf.write(line + "
+")
+                import sys
+                sys.stdout.write(buf.getvalue())
+                sys.stdout.flush()
