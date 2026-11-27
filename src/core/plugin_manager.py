@@ -328,3 +328,8 @@ def safe_load(self, plugin_name: str) -> bool:
 def count(self) -> int:
     """Return the number of currently loaded plugins."""
     return len(self.plugins)
+
+
+def __iter__(self):
+    """Iterate over (name, module) pairs of loaded plugins."""
+    return iter(self.plugins.items())
