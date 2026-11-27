@@ -351,3 +351,8 @@ class NeuralPredictionEngine:
         from difflib import get_close_matches
         all_cmds = list(self._unigrams.keys())
         return get_close_matches(bad_cmd, all_cmds, n=5, cutoff=0.6)
+
+
+def batch_predict(self, commands: list) -> list:
+    """Run predict_intent on a list of commands and return results."""
+    return [self.predict_intent(cmd) for cmd in commands if cmd]
