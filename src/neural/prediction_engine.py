@@ -356,3 +356,8 @@ class NeuralPredictionEngine:
 def batch_predict(self, commands: list) -> list:
     """Run predict_intent on a list of commands and return results."""
     return [self.predict_intent(cmd) for cmd in commands if cmd]
+
+
+def reset_history(self) -> None:
+    """Clear the in-memory command history."""
+    self.command_history = []
