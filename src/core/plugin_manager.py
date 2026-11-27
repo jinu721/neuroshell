@@ -313,3 +313,12 @@ def get_metadata(self, plugin_name: str) -> dict:
         "author":  getattr(plugin, "__author__",  "unknown"),
         "doc":     getattr(plugin, "__doc__",     ""),
     }
+
+
+def safe_load(self, plugin_name: str) -> bool:
+    """Load a plugin, printing a warning instead of raising on error."""
+    try:
+        return self.load(plugin_name)
+    except Exception as exc:
+        print(f"[plugin] Failed to load '{plugin_name}': {exc}")
+        return False
