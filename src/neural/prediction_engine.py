@@ -429,3 +429,12 @@ def success_rate(self) -> float:
         return 0.0
     successes = sum(1 for e in self.command_history if e.get("success"))
     return successes / len(self.command_history)
+
+
+def __repr__(self) -> str:
+    return (
+        f"NeuralPredictionEngine("
+        f"accuracy={self.prediction_accuracy:.2f}, "
+        f"history_len={len(self.command_history)}, "
+        f"model_loaded={self.model_loaded})"
+    )
