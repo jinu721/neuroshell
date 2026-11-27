@@ -387,3 +387,21 @@ def export_history(self, path: str) -> None:
         for e in self.command_history
     ]
     pathlib.Path(path).write_text(json.dumps(records, indent=2))
+
+
+def find_similar(self, typo: str, candidates: list = None) -> list:
+    """Return candidates within edit-distance 2 of typo."""
+    if candidates is None:
+        candidates = ["ls", "cd", "git", "npm", "python", "cat", "grep", "curl"]
+
+    def _edit_dist(a, b):
+        dp = list(range(len(b) + 1))
+        for i, ca in enumerate(a):
+            dp2 = [i + 1]
+            for j, cb in enumerate(b):
+                dp2.append(min(dp[j + 1] + 1, dp2[-1] + 1,
+                              dp[j] + (ca != cb)))
+            dp = dp2
+        return dp[-1]
+
+    return [c for c in candidates if _edit_dist(typo, c) <= 2]
