@@ -405,3 +405,18 @@ def find_similar(self, typo: str, candidates: list = None) -> list:
         return dp[-1]
 
     return [c for c in candidates if _edit_dist(typo, c) <= 2]
+
+
+_suggestion_cache: dict = {}
+_CACHE_MAX = 256
+
+def _cached_suggestions(self, partial: str) -> list:
+    """Return suggestions from cache or compute and store them."""
+    if partial in self._suggestion_cache:
+        return self._suggestion_cache[partial]
+    result = self._generate_suggestions(partial)
+    if len(self._suggestion_cache) >= self._CACHE_MAX:
+        oldest = next(iter(self._suggestion_cache))
+        del self._suggestion_cache[oldest]
+    self._suggestion_cache[partial] = result
+    return result
