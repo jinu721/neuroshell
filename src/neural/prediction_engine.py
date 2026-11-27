@@ -377,3 +377,13 @@ def top_commands(self, n: int = 5) -> list:
 def set_accuracy(self, value: float) -> None:
     """Set prediction accuracy, clamped to [0.0, 1.0]."""
     self.prediction_accuracy = max(0.0, min(1.0, value))
+
+
+def export_history(self, path: str) -> None:
+    """Write command history to a JSON file."""
+    import json, pathlib
+    records = [
+        {"command": e["command"], "success": e["success"]}
+        for e in self.command_history
+    ]
+    pathlib.Path(path).write_text(json.dumps(records, indent=2))
