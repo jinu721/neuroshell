@@ -372,3 +372,8 @@ def top_commands(self, n: int = 5) -> list:
         if entry.get("success")
     )
     return [cmd for cmd, _ in counts.most_common(n)]
+
+
+def set_accuracy(self, value: float) -> None:
+    """Set prediction accuracy, clamped to [0.0, 1.0]."""
+    self.prediction_accuracy = max(0.0, min(1.0, value))
