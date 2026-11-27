@@ -361,3 +361,14 @@ def batch_predict(self, commands: list) -> list:
 def reset_history(self) -> None:
     """Clear the in-memory command history."""
     self.command_history = []
+
+
+def top_commands(self, n: int = 5) -> list:
+    """Return the n most frequently used commands from history."""
+    from collections import Counter
+    counts = Counter(
+        entry["command"]
+        for entry in self.command_history
+        if entry.get("success")
+    )
+    return [cmd for cmd, _ in counts.most_common(n)]
