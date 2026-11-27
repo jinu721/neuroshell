@@ -290,3 +290,14 @@ class PluginManager:
     def __contains__(self, plugin_name: str) -> bool:
         """Support 'name in plugin_manager' membership test."""
         return plugin_name in self.plugins
+
+
+def call(self, plugin_name: str, func_name: str, *args, **kwargs):
+    """Call a function in a loaded plugin by name; returns None if missing."""
+    plugin = self.plugins.get(plugin_name)
+    if plugin is None:
+        return None
+    func = getattr(plugin, func_name, None)
+    if callable(func):
+        return func(*args, **kwargs)
+    return None
