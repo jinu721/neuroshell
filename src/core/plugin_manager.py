@@ -322,3 +322,9 @@ def safe_load(self, plugin_name: str) -> bool:
     except Exception as exc:
         print(f"[plugin] Failed to load '{plugin_name}': {exc}")
         return False
+
+
+@property
+def count(self) -> int:
+    """Return the number of currently loaded plugins."""
+    return len(self.plugins)
