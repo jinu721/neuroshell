@@ -420,3 +420,12 @@ def _cached_suggestions(self, partial: str) -> list:
         del self._suggestion_cache[oldest]
     self._suggestion_cache[partial] = result
     return result
+
+
+@property
+def success_rate(self) -> float:
+    """Return fraction of successful commands in history."""
+    if not self.command_history:
+        return 0.0
+    successes = sum(1 for e in self.command_history if e.get("success"))
+    return successes / len(self.command_history)
