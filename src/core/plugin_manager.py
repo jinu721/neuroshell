@@ -301,3 +301,15 @@ def call(self, plugin_name: str, func_name: str, *args, **kwargs):
     if callable(func):
         return func(*args, **kwargs)
     return None
+
+
+def get_metadata(self, plugin_name: str) -> dict:
+    """Return version and author metadata from a loaded plugin module."""
+    plugin = self.plugins.get(plugin_name)
+    if plugin is None:
+        return {}
+    return {
+        "version": getattr(plugin, "__version__", "unknown"),
+        "author":  getattr(plugin, "__author__",  "unknown"),
+        "doc":     getattr(plugin, "__doc__",     ""),
+    }
